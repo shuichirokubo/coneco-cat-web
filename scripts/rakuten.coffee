@@ -23,13 +23,15 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
+        rakutenUrl     = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd&sort=-reviewAverage'
         searchWord     = random searchWordArray
         rakutenUrl     += '&keyword=' + encodeURIComponent(searchWord)
         rakuten_client = request_json.createClient(rakutenUrl)
-        value          = random [0..19]
         console.log("search: #{searchWord}")
         console.log("search: #{rakutenUrl}")
         rakuten_client.get('', (err, res, body) ->
+          value       = random [0..body.hits-1]
+          console.log("value: #{value}")
           item_price  = "お買い得！" + body.Items[value].Item.itemPrice + "円"
           catch_copy  = body.Items[value].Item.catchcopy.substring(0, 30)
           afl_url     = body.Items[value].Item.affiliateUrl
@@ -38,9 +40,10 @@ module.exports = (robot) ->
           request.get(image_url_1)
             .on('response', (res) ->
             ).pipe(fs.createWriteStream('./rakuten_images/saved_1.jpg'))
-          request.get(image_url_2)
-            .on('response', (res) ->
-            ).pipe(fs.createWriteStream('./rakuten_images/saved_2.jpg'))
+          if image_url_2
+            request.get(image_url_2)
+              .on('response', (res) ->
+              ).pipe(fs.createWriteStream('./rakuten_images/saved_2.jpg'))
           tweet = """
             【#{searchWord} グッズ】
             #{item_price}
