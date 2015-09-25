@@ -7,8 +7,8 @@ twit         = require('twit')
 async        = require('async')
 
 # for instagram
-instagramUrl = 'https://api.instagram.com/v1/tags/'
-tagsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat']
+flickerUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6123d03adcf80439f7f840ff40e2cf5f&extras=owner_name%2Curl_q%2Ctags&format=json&nojsoncallback=1'
+textArray = ['ねこ','猫','kitty','ネコ','neko','cat']
 
 module.exports = (robot) ->
 
@@ -23,20 +23,21 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        tag              = random tagsArray
-        instagramUrl    += encodeURIComponent(tag) + '/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
-        instagram_client = request_json.createClient(instagramUrl)
-        value = random [0..19]
-        console.log("search: #{tag}")
-        console.log("search: #{instagramUrl}")
-        instagram_client.get('', (err, res, body) ->
-          request.get(body.data[value].images.low_resolution.url)
+        text           = random textArray
+        flickerUrl    += '&text=' + encodeURIComponent(text)
+        flicker_client = request_json.createClient(flickerUrl)
+        console.log("search: #{text}")
+        console.log("search: #{flickerUrl}")
+        flicker_client.get('', (err, res, body) ->
+          value = random [0..100-1]
+          console.log("value: #{value}")
+          request.get(body.photos.photo[value].url_q)
             .on('response', (res) ->
-            ).pipe(fs.createWriteStream('./instagram_images/saved.jpg'))
+            ).pipe(fs.createWriteStream('./flicker_images/saved.jpg'))
           tweet = """
-            #{body.data[value].link}
-            by Instagram@#{body.data[value].user.full_name}
-            #{body.data[value].caption.text.substring(0, 30)}...
+            #{body.photos.photo[value].title}
+            by Flicker@#{body.photos.photo[value].ownername}
+            #{body.photos.photo[value].tags.substring(0, 30)}...
           """
           callback(null, tweet)
         )
@@ -47,7 +48,7 @@ module.exports = (robot) ->
           , 5000
         )
     }, (err, result) ->
-      b64img = fs.readFileSync('./instagram_images/saved.jpg', { encoding: 'base64' })
+      b64img = fs.readFileSync('./flicker_images/saved.jpg', { encoding: 'base64' })
       @clientForImage.post('media/upload', { media_data: b64img }, (err, data, res) ->
         mediaIdStr = data.media_id_string
         params = { status: result.search, media_ids: [mediaIdStr] }
