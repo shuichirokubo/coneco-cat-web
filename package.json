@@ -5,6 +5,7 @@
   "author": "cat@kyaukyuai.sakura.ne.jp",
   "description": "A bot provies coneco to someone who loves cat.",
   "dependencies": {
+    "async": "^1.4.2",
     "cron": "^1.0.5",
     "forever": "^0.14.1",
     "hubot": "^2.16.0",

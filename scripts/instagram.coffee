@@ -6,6 +6,8 @@ fs           = require('fs')
 http         = require('http')
 url          = require('url')
 Twitter      = require('twitter')
+twit         = require('twit')
+async        = require('async')
 
 # for instagram
 instagramUrl = 'https://api.instagram.com/v1/tags/'
@@ -23,29 +25,54 @@ module.exports = (robot) ->
     access_token_secret: process.env.HUBOT_TWITTER_TOKEN_SECRET
   }
   @client = new Twitter(keys)
+  keysForImage = {
+    consumer_key:        process.env.HUBOT_TWITTER_KEY
+    consumer_secret:     process.env.HUBOT_TWITTER_SECRET
+    access_token:        process.env.HUBOT_TWITTER_TOKEN
+    access_token_secret: process.env.HUBOT_TWITTER_TOKEN_SECRET
+  }
+  @clientForImage = new twit(keysForImage)
 
   do_tweet = ->
-    tag              = random tagsArray
-    console.log(tag)
-    instagramUrl    += encodeURIComponent(tag) + '/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
-    console.log(instagramUrl)
-    instagram_client = request_json.createClient(instagramUrl)
-    value = random [0..19]
-    instagram_client.get('', (err, res, body) ->
-      request.get(body.data[value].images.low_resolution.url)
-        .on('response', (res) ->
-        ).pipe(fs.createWriteStream('./saved.jpg'))
-      b64img = fs.readFileSync('./saved.jpg', { encoding: 'base64' })
-      tweet = """
-        #{body.data[value].link}
-        by Instagram@#{body.data[value].user.full_name}
-        #{body.data[value].caption.text.substring(0, 30)}
-      """
-      robot.send {}, tweet
+    async.series({
+      search: (callback) ->
+        console.log('search')
+        tag              = random tagsArray
+        instagramUrl    += encodeURIComponent(tag) + '/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
+        instagram_client = request_json.createClient(instagramUrl)
+        value = random [0..19]
+        instagram_client.get('', (err, res, body) ->
+          request.get(body.data[value].images.low_resolution.url)
+            .on('response', (res) ->
+            ).pipe(fs.createWriteStream('./instagram_images/saved.jpg'))
+          tweet = """
+            #{body.data[value].link}
+            by Instagram@#{body.data[value].user.full_name}
+            #{body.data[value].caption.text.substring(0, 30)}
+          """
+          callback(null, tweet)
+        )
+      post: (callback) ->
+        console.log('post')
+        setTimeout(
+          () ->
+            callback(null, 'post')
+          , 5000
+        )
+    }, (err, result) ->
+      console.log(result)
+      b64img = fs.readFileSync('./instagram_images/saved.jpg', { encoding: 'base64' })
+      @clientForImage.post('media/upload', { media_data: b64img }, (err, data, res) ->
+        console.log(data)
+        mediaIdStr = data.media_id_string
+        params = { status: result.search, media_ids: [mediaIdStr] }
+        @clientForImage.post('statuses/update', params, (e, d, r) ->
+        )
+      )
     )
 
   cronjob = new cronJob(
-    cronTime: "0 0,10,20,30,40,50 * * * *"
+    cronTime: "0 10,20,30,40,50 * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->
