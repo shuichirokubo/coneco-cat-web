@@ -7,7 +7,7 @@ twit         = require('twit')
 async        = require('async')
 
 # for 500px
-termsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat']
+termsArray = ['ねこ','猫','kitty','ネコ','neko','cat']
 
 module.exports = (robot) ->
 
