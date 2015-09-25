@@ -31,7 +31,7 @@ module.exports = (robot) ->
         rakuten_client = request_json.createClient(rakutenUrl)
         value          = random [0..19]
         rakuten_client.get('', (err, res, body) ->
-          item_price = "お買い得！ " + body.Items[value].Item.itemPrice + "円"
+          item_price = "お買い得！" + body.Items[value].Item.itemPrice + "円"
           catch_copy = body.Items[value].Item.catchcopy.substring(0, 30)
           afl_url    = body.Items[value].Item.affiliateUrl
           image_url  = body.Items[value].Item.mediumImageUrls[0].imageUrl
@@ -39,7 +39,7 @@ module.exports = (robot) ->
             .on('response', (res) ->
             ).pipe(fs.createWriteStream('./rakuten_images/saved.jpg'))
           tweet = """
-            #{searchWord}グッズ
+            【#{searchWord}グッズ】
             #{item_price}
             #{catch_copy}
             #{afl_url}
@@ -64,7 +64,7 @@ module.exports = (robot) ->
     )
 
   cronjob = new cronJob(
-    cronTime: "0 0,15,30,45 * * * *"
+    cronTime: "0 */15 * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->
