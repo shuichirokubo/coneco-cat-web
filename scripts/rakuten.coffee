@@ -3,14 +3,12 @@ random       = require('hubot').Response::random
 request_json = require('request-json')
 request      = require('request')
 fs           = require('fs')
-http         = require('http')
-url          = require('url')
 twit         = require('twit')
 async        = require('async')
 
 # for rakuten webservice
-rakutenUrl      = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd&sort=-affiliateRate'
-searchWordArray = ["猫 ぬいぐるみ"]
+rakutenUrl      = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd&sort=-reviewAverage'
+searchWordArray = ['猫 ぬいぐるみ']
 
 module.exports = (robot) ->
 
@@ -25,11 +23,12 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        console.log('search')
         searchWord     = random searchWordArray
         rakutenUrl     += '&keyword=' + encodeURIComponent(searchWord)
         rakuten_client = request_json.createClient(rakutenUrl)
         value          = random [0..19]
+        console.log("search: #{searchWord}")
+        console.log("search: #{rakutenUrl}")
         rakuten_client.get('', (err, res, body) ->
           item_price = "お買い得！" + body.Items[value].Item.itemPrice + "円"
           catch_copy = body.Items[value].Item.catchcopy.substring(0, 30)
@@ -41,13 +40,12 @@ module.exports = (robot) ->
           tweet = """
             【#{searchWord}グッズ】
             #{item_price}
-            #{catch_copy}
+            #{catch_copy}...
             #{afl_url}
           """
           callback(null, tweet)
         )
       post: (callback) ->
-        console.log('post')
         setTimeout(
           () ->
             callback(null, 'post')
