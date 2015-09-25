@@ -3,7 +3,7 @@ random  = require('hubot').Response::random
 twit    = require('twit')
 
 # for search
-searchWordArray = ["ねこ","猫","ネコ","#ねこ","#猫","#ネコ"]
+searchWordArray = ['ねこ','猫','ネコ','#ねこ','#猫','#ネコ']
 
 module.exports = (robot) ->
 
@@ -17,6 +17,7 @@ module.exports = (robot) ->
 
   do_tweet = ->
     searchWord = random searchWordArray
+    console.log("search: #{searchWord}")
     @client.get('search/tweets', { q: searchWord, count: 1 }, (err, data, response) ->
       data.statuses.forEach (tweet) ->
         @client.post('statuses/retweet/:id', { id: tweet.id_str }, (err, data, response) ->

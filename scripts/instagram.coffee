@@ -10,7 +10,7 @@ async        = require('async')
 
 # for instagram
 instagramUrl = 'https://api.instagram.com/v1/tags/'
-tagsArray = ["ねこ","猫","kitty","instacat","ネコ","neko","cat"]
+tagsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat']
 
 module.exports = (robot) ->
 
@@ -25,11 +25,12 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        console.log('search')
         tag              = random tagsArray
         instagramUrl    += encodeURIComponent(tag) + '/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
         instagram_client = request_json.createClient(instagramUrl)
         value = random [0..19]
+        console.log("search: #{tag}")
+        console.log("search: #{instagramUrl}")
         instagram_client.get('', (err, res, body) ->
           request.get(body.data[value].images.low_resolution.url)
             .on('response', (res) ->
@@ -37,12 +38,11 @@ module.exports = (robot) ->
           tweet = """
             #{body.data[value].link}
             by Instagram@#{body.data[value].user.full_name}
-            #{body.data[value].caption.text.substring(0, 30)}
+            #{body.data[value].caption.text.substring(0, 30)}...
           """
           callback(null, tweet)
         )
       post: (callback) ->
-        console.log('post')
         setTimeout(
           () ->
             callback(null, 'post')
@@ -59,7 +59,7 @@ module.exports = (robot) ->
     )
 
   cronjob = new cronJob(
-    cronTime: "0 10,20,30,40,50 * * * *"
+    cronTime: "0 */10 * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->

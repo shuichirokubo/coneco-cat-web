@@ -17,10 +17,10 @@ module.exports = (robot) ->
 
   do_tweet = ->
     searchWord = random searchWordArray
-    console.log(searchWord)
+    console.log("search: #{searchWord}")
     @client.get('search/tweets', { q: searchWord, count: 15 }, (err, data, response) ->
       data.statuses.forEach (tweet) ->
-        console.log(tweet.user)
+        console.log("user: #{tweet.user}")
         robot.adapter.join tweet.user
     )
 
