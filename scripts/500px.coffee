@@ -1,0 +1,68 @@
+cronJob      = require('cron').CronJob
+random       = require('hubot').Response::random
+request_json = require('request-json')
+request      = require('request')
+fs           = require('fs')
+twit         = require('twit')
+async        = require('async')
+
+# for 500px
+termsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat']
+
+module.exports = (robot) ->
+
+  keysForImage = {
+    consumer_key:        process.env.HUBOT_TWITTER_KEY
+    consumer_secret:     process.env.HUBOT_TWITTER_SECRET
+    access_token:        process.env.HUBOT_TWITTER_TOKEN
+    access_token_secret: process.env.HUBOT_TWITTER_TOKEN_SECRET
+  }
+  @clientForImage = new twit(keysForImage)
+
+  do_tweet = ->
+    async.series({
+      search: (callback) ->
+        _500pxUrl    = 'https://api.500px.com/v1/photos/search?consumer_key=wso0y9t1n3iVnqo8DYQzbfrgaqACNAzaz09bcRwe&sort=favorites_count'
+        term         = random termsArray
+        _500pxUrl   += '&term=' + encodeURIComponent(term)
+        _500px_client = request_json.createClient(_500pxUrl)
+        value = random [0..19]
+        console.log("search: #{term}")
+        console.log("search: #{_500pxUrl}")
+        _500px_client.get('', (err, res, body) ->
+          request.get(body.photos[value].image_url)
+            .on('response', (res) ->
+            ).pipe(fs.createWriteStream('./500px_images/saved.jpg'))
+          tweet = """
+            ***#{body.photos[value].name}***
+            by 500px@#{body.photos[value].user.username}
+            favorites: #{body.photos[value].positive_votes_count}
+            https://500px.com#{body.photos[value].url}
+          """
+          callback(null, tweet)
+        )
+      post: (callback) ->
+        setTimeout(
+          () ->
+            callback(null, 'post')
+          , 5000
+        )
+    }, (err, result) ->
+      b64img = fs.readFileSync('./500px_images/saved.jpg', { encoding: 'base64' })
+      @clientForImage.post('media/upload', { media_data: b64img }, (err, data, res) ->
+        mediaIdStr = data.media_id_string
+        params = { status: result.search, media_ids: [mediaIdStr] }
+        @clientForImage.post('statuses/update', params, (e, d, r) ->
+        )
+      )
+    )
+
+  cronjob = new cronJob(
+    cronTime: "0 10,30,50 * * * *"
+    start: true
+    timeZone: "Asia/Tokyo"
+    onTick: ->
+      do_tweet()
+  )
+
+  cronjob.start()
