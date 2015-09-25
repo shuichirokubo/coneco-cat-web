@@ -35,6 +35,7 @@ module.exports = (robot) ->
       afl_url    = body.Items[value].Item.affiliateUrl
       image_url  = body.Items[value].Item.mediumImageUrls[0].imageUrl
       tweet = """
+        #{searchWord}グッズ
         #{item_price}
         #{catch_copy}
         #{afl_url}
