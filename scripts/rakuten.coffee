@@ -38,7 +38,7 @@ module.exports = (robot) ->
             .on('response', (res) ->
             ).pipe(fs.createWriteStream('./rakuten_images/saved.jpg'))
           tweet = """
-            【#{searchWord}グッズ】
+            【#{searchWord} グッズ】
             #{item_price}
             #{catch_copy}...
             #{afl_url}
