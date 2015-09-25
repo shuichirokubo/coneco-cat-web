@@ -7,8 +7,8 @@ http         = require('http')
 url          = require('url')
 Twitter      = require('twitter')
 
-instagram_client = request_json.createClient(
-  'https://api.instagram.com/v1/tags/%E7%8C%AB/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
+rakuten_client = request_json.createClient(
+  'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&keyword=%E7%8C%AB%20%E3%83%9E%E3%82%B9%E3%82%B3%E3%83%83%E3%83%88&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd&sort=-affiliateRate'
 )
 upload_url = 'https://upload.twitter.com/1.1/media/upload.json'
 values = [0..19]
@@ -25,21 +25,22 @@ module.exports = (robot) ->
 
   do_tweet = ->
     value = random values
-    instagram_client.get('', (err, res, body) ->
-      request.get(body.data[value].images.low_resolution.url)
-        .on('response', (res) ->
-        ).pipe(fs.createWriteStream('./saved.jpg'))
-      b64img = fs.readFileSync('./saved.jpg', { encoding: 'base64' })
+    rakuten_client.get('', (err, res, body) ->
+      item_price = "お買い得！ " + body.Items[value].Item.itemPrice + "円"
+      catch_copy = body.Items[value].Item.catchcopy.substring(0, 30)
+      afl_url    = body.Items[value].Item.affiliateUrl
+      image_url  = body.Items[value].Item.mediumImageUrls[0].imageUrl
       tweet = """
-        #{body.data[value].link}
-        by Instagram@#{body.data[value].user.full_name}
-        #{body.data[value].caption.text}
+        #{item_price}
+        #{catch_copy}
+        #{afl_url}
       """
       robot.send {}, tweet
+      console.log(value)
     )
 
   cronjob = new cronJob(
-    cronTime: "0 0,10,20,30,40,50 * * * *"
+    cronTime: "0 5,15,25,35,45,55 * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->
