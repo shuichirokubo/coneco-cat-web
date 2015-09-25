@@ -13,13 +13,13 @@ module.exports = (robot) ->
   @client = new twit(keys)
 
   do_tweet = ->
-    @client.get('search/tweets', { q: '猫', count: 10 }, (err, data, response) ->
+    @client.get('search/tweets', { q: '猫', count: 15 }, (err, data, response) ->
       data.statuses.forEach (tweet) ->
         robot.adapter.join tweet.user
     )
 
   cronjob = new cronJob(
-    cronTime: "0 0 3,6,9,12,15,18 * * *"
+    cronTime: "0 0 * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->

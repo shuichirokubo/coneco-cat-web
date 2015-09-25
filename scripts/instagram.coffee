@@ -7,24 +7,30 @@ http         = require('http')
 url          = require('url')
 Twitter      = require('twitter')
 
-instagram_client = request_json.createClient(
-  'https://api.instagram.com/v1/tags/%E7%8C%AB/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
-)
+# for instagram
+instagramUrl = 'https://api.instagram.com/v1/tags/'
+tagsArray = ["ねこ","猫","kitty","instacat","ネコ","neko","cat"]
+
+# for twitter
 upload_url = 'https://upload.twitter.com/1.1/media/upload.json'
-values = [0..19]
 
 module.exports = (robot) ->
 
   keys = {
-    consumer_key: process.env.HUBOT_TWITTER_KEY
-    consumer_secret: process.env.HUBOT_TWITTER_SECRET
-    access_token: process.env.HUBOT_TWITTER_TOKEN
+    consumer_key:        process.env.HUBOT_TWITTER_KEY
+    consumer_secret:     process.env.HUBOT_TWITTER_SECRET
+    access_token_key:    process.env.HUBOT_TWITTER_TOKEN
     access_token_secret: process.env.HUBOT_TWITTER_TOKEN_SECRET
   }
   @client = new Twitter(keys)
 
   do_tweet = ->
-    value = random values
+    tag              = random tagsArray
+    console.log(tag)
+    instagramUrl    += encodeURIComponent(tag) + '/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
+    console.log(instagramUrl)
+    instagram_client = request_json.createClient(instagramUrl)
+    value = random [0..19]
     instagram_client.get('', (err, res, body) ->
       request.get(body.data[value].images.low_resolution.url)
         .on('response', (res) ->
@@ -33,7 +39,7 @@ module.exports = (robot) ->
       tweet = """
         #{body.data[value].link}
         by Instagram@#{body.data[value].user.full_name}
-        #{body.data[value].caption.text}
+        #{body.data[value].caption.text.substring(0, 30)}
       """
       robot.send {}, tweet
     )
