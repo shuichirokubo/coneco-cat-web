@@ -7,7 +7,6 @@ twit         = require('twit')
 async        = require('async')
 
 # for instagram
-instagramUrl = 'https://api.instagram.com/v1/tags/'
 tagsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat']
 
 module.exports = (robot) ->
@@ -23,6 +22,7 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
+        instagramUrl     = 'https://api.instagram.com/v1/tags/'
         tag              = random tagsArray
         instagramUrl    += encodeURIComponent(tag) + '/media/recent?client_id=9ad0d13ba1bc4af68fd60217ad853471&max_tag_id=980964481902499453'
         instagram_client = request_json.createClient(instagramUrl)

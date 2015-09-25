@@ -7,7 +7,6 @@ twit         = require('twit')
 async        = require('async')
 
 # for instagram
-flickerUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6123d03adcf80439f7f840ff40e2cf5f&extras=owner_name%2Curl_q%2Ctags&format=json&nojsoncallback=1'
 textArray = ['ねこ','猫','kitty','ネコ','neko','cat']
 
 module.exports = (robot) ->
@@ -23,6 +22,7 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
+        flickerUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6123d03adcf80439f7f840ff40e2cf5f&extras=owner_name%2Curl_q%2Ctags&format=json&nojsoncallback=1'
         text           = random textArray
         flickerUrl    += '&text=' + encodeURIComponent(text)
         flicker_client = request_json.createClient(flickerUrl)

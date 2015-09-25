@@ -7,7 +7,6 @@ twit         = require('twit')
 async        = require('async')
 
 # for rakuten webservice
-rakutenUrl      = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd&sort=-reviewAverage'
 searchWordArray = ['猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー']
 
 module.exports = (robot) ->
