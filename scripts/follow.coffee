@@ -18,14 +18,14 @@ module.exports = (robot) ->
   do_tweet = ->
     searchWord = random searchWordArray
     console.log("search: #{searchWord}")
-    @client.get('search/tweets', { q: searchWord, count: 15 }, (err, data, response) ->
+    @client.get('search/tweets', { q: searchWord, count: 10 }, (err, data, response) ->
       data.statuses.forEach (tweet) ->
         console.log("user: #{tweet.user}")
         robot.adapter.join tweet.user
     )
 
   cronjob = new cronJob(
-    cronTime: "0 */30 * * * *"
+    cronTime: "0 * * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->
