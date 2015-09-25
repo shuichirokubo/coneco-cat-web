@@ -17,7 +17,7 @@ module.exports = (robot) ->
 
   do_tweet = ->
     searchWord = random searchWordArray
-    @client.get('search/tweets', { q: searchWord, count: 2 }, (err, data, response) ->
+    @client.get('search/tweets', { q: searchWord, count: 1 }, (err, data, response) ->
       data.statuses.forEach (tweet) ->
         @client.post('statuses/retweet/:id', { id: tweet.id_str }, (err, data, response) ->
         )
