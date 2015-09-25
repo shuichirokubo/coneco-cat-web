@@ -34,7 +34,7 @@ module.exports = (robot) ->
           catch_copy  = body.Items[value].Item.catchcopy.substring(0, 30)
           afl_url     = body.Items[value].Item.affiliateUrl
           image_url_1 = body.Items[value].Item.mediumImageUrls[0].imageUrl
-          image_url_2 = body.Items[value].Item.mediumImageUrls[1].imageUrl
+          image_url_2 = if body.Items[value].Item.mediumImageUrls[1] then body.Items[value].Item.mediumImageUrls[1].imageUrl else ''
           request.get(image_url_1)
             .on('response', (res) ->
             ).pipe(fs.createWriteStream('./rakuten_images/saved_1.jpg'))
