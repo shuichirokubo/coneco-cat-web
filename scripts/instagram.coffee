@@ -5,7 +5,6 @@ request      = require('request')
 fs           = require('fs')
 http         = require('http')
 url          = require('url')
-Twitter      = require('twitter')
 twit         = require('twit')
 async        = require('async')
 
@@ -13,18 +12,8 @@ async        = require('async')
 instagramUrl = 'https://api.instagram.com/v1/tags/'
 tagsArray = ["ねこ","猫","kitty","instacat","ネコ","neko","cat"]
 
-# for twitter
-upload_url = 'https://upload.twitter.com/1.1/media/upload.json'
-
 module.exports = (robot) ->
 
-  keys = {
-    consumer_key:        process.env.HUBOT_TWITTER_KEY
-    consumer_secret:     process.env.HUBOT_TWITTER_SECRET
-    access_token_key:    process.env.HUBOT_TWITTER_TOKEN
-    access_token_secret: process.env.HUBOT_TWITTER_TOKEN_SECRET
-  }
-  @client = new Twitter(keys)
   keysForImage = {
     consumer_key:        process.env.HUBOT_TWITTER_KEY
     consumer_secret:     process.env.HUBOT_TWITTER_SECRET
@@ -60,10 +49,8 @@ module.exports = (robot) ->
           , 5000
         )
     }, (err, result) ->
-      console.log(result)
       b64img = fs.readFileSync('./instagram_images/saved.jpg', { encoding: 'base64' })
       @clientForImage.post('media/upload', { media_data: b64img }, (err, data, res) ->
-        console.log(data)
         mediaIdStr = data.media_id_string
         params = { status: result.search, media_ids: [mediaIdStr] }
         @clientForImage.post('statuses/update', params, (e, d, r) ->
