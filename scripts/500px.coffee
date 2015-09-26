@@ -34,7 +34,7 @@ module.exports = (robot) ->
             .on('response', (res) ->
             ).pipe(fs.createWriteStream('./500px_images/saved.jpg'))
           tweet = """
-            ***#{body.photos[value].name}***
+            Title: body.photos[value].name}
             by 500px@#{body.photos[value].user.username}
             favorites: #{body.photos[value].positive_votes_count}
             https://500px.com#{body.photos[value].url}
