@@ -8,6 +8,7 @@ async        = require('async')
 
 # for rakuten webservice
 searchWordArray = ['猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー']
+sortArray       = ['-reviewAverage','-reviewCount','-itemPrice','+itemPrice','-updateTimestamp','standard']
 
 module.exports = (robot) ->
 
@@ -22,11 +23,14 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        rakutenUrl     = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd&sort=-reviewAverage'
+        rakutenUrl     = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd'
         searchWord     = random searchWordArray
         rakutenUrl     += '&keyword=' + encodeURIComponent(searchWord)
+        sort           = random sortArray
+        rakutenUrl     += '&sort=' + encodeURIComponent(sort)
         rakuten_client = request_json.createClient(rakutenUrl)
         console.log("search: #{searchWord}")
+        console.log("search: #{sort}")
         console.log("search: #{rakutenUrl}")
         rakuten_client.get('', (err, res, body) ->
           value       = random [0..body.hits-1]
