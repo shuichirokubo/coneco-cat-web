@@ -22,7 +22,7 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        flickerUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6123d03adcf80439f7f840ff40e2cf5f&extras=owner_name%2Curl_q%2Ctags&format=json&nojsoncallback=1'
+        flickerUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6123d03adcf80439f7f840ff40e2cf5f&extras=owner_name%2Curl_s%2Ctags&format=json&nojsoncallback=1'
         text           = random textArray
         flickerUrl    += '&text=' + encodeURIComponent(text)
         flicker_client = request_json.createClient(flickerUrl)
@@ -31,7 +31,7 @@ module.exports = (robot) ->
         flicker_client.get('', (err, res, body) ->
           value = random [0..100-1]
           console.log("value: #{value}")
-          request.get(body.photos.photo[value].url_q)
+          request.get(body.photos.photo[value].url_s)
             .on('response', (res) ->
             ).pipe(fs.createWriteStream('./flicker_images/saved.jpg'))
           tweet = """
