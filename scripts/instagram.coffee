@@ -7,7 +7,7 @@ twit         = require('twit')
 async        = require('async')
 
 # for instagram
-tagsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat']
+tagsArray = ['ねこ','猫','kitty','instacat','ネコ','neko','cat','lovecats','cats','ilovecat']
 
 module.exports = (robot) ->
 
