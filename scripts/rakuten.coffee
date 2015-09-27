@@ -7,7 +7,7 @@ twit         = require('twit')
 async        = require('async')
 
 # for rakuten webservice
-searchWordArray = ['猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー']
+searchWordArray = ['ねこ ぬいぐるみ','猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー']
 sortArray       = ['-reviewAverage','-reviewCount','-itemPrice','+itemPrice','-updateTimestamp','standard']
 
 module.exports = (robot) ->
