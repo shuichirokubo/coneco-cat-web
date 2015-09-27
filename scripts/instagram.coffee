@@ -37,6 +37,7 @@ module.exports = (robot) ->
             #{body.data[value].link}
             by Instagram@#{body.data[value].user.full_name}
             #{body.data[value].caption.text.substring(0, 30)}...
+            \#Instagram \#cat
           """
           callback(null, tweet)
         )

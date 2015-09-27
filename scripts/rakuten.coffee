@@ -52,6 +52,7 @@ module.exports = (robot) ->
             #{item_price}
             #{catch_copy}...
             #{afl_url}
+            \#rakuten
           """
           callback(null, tweet)
         )

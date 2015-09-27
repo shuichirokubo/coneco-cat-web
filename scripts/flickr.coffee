@@ -42,6 +42,7 @@ module.exports = (robot) ->
             #{body.photos.photo[value].title}
             by Flicker@#{body.photos.photo[value].ownername}
             #{body.photos.photo[value].tags.substring(0, 30)}...
+            \#Flicker \#cat \#猫 \#ネコ \#ねこ
           """
           callback(null, tweet)
         )
