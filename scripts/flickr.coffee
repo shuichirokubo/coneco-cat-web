@@ -22,7 +22,7 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        flickerUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6123d03adcf80439f7f840ff40e2cf5f&extras=owner_name%2Curl_s%2Ctags&format=json&nojsoncallback=1'
+        flickerUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4480c9059211841b6a5101941b2724df&extras=owner_name%2Curl_s%2Ctags&format=json&nojsoncallback=1'
         text           = random textArray
         flickerUrl    += '&text=' + encodeURIComponent(text)
         flicker_client = request_json.createClient(flickerUrl)
