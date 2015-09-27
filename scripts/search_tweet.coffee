@@ -3,7 +3,7 @@ random  = require('hubot').Response::random
 twit    = require('twit')
 
 # for search
-searchWordArray = ['ねこ','猫','ネコ','#ねこ','#猫','#ネコ']
+searchWordArray = ['ねこ','猫','ネコ','#ねこ','#猫','#ネコ','vine cat','vine 猫']
 
 module.exports = (robot) ->
 
