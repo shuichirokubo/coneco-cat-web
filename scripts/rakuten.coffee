@@ -7,7 +7,7 @@ twit         = require('twit')
 async        = require('async')
 
 # for rakuten webservice
-searchWordArray = ['猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー']
+searchWordArray = ['猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー','猫 インテリア']
 sortArray       = ['-reviewAverage','-reviewCount','-itemPrice','+itemPrice','-updateTimestamp','standard']
 
 module.exports = (robot) ->
@@ -77,7 +77,7 @@ module.exports = (robot) ->
     )
 
   cronjob = new cronJob(
-    cronTime: "0 */30 * * * *"
+    cronTime: "0 10,50 * * * *"
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->
