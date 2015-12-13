@@ -1,3 +1,7 @@
 node_modules
 .DS_Store*
 .hubot_history
+./500px_images/*
+./flicker_images/*
+./instagram_images/*
+./rakuten_images/*
