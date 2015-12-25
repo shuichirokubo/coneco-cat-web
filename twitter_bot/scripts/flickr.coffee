@@ -37,7 +37,7 @@ module.exports = (robot) ->
           console.log("value: #{value}")
           request.get(body.photos.photo[value].url_s)
             .on('response', (res) ->
-            ).pipe(fs.createWriteStream('./flicker_images/saved.jpg'))
+            ).pipe(fs.createWriteStream('./images/flicker_saved.jpg'))
           tweet = """
             #{body.photos.photo[value].title}
             by Flicker@#{body.photos.photo[value].ownername}
@@ -53,7 +53,7 @@ module.exports = (robot) ->
           , 5000
         )
     }, (err, result) ->
-      b64img = fs.readFileSync('./flicker_images/saved.jpg', { encoding: 'base64' })
+      b64img = fs.readFileSync('./images/flicker_saved.jpg', { encoding: 'base64' })
       @clientForImage.post('media/upload', { media_data: b64img }, (err, data, res) ->
         mediaIdStr = data.media_id_string
         params = { status: result.search, media_ids: [mediaIdStr] }

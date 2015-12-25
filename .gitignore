@@ -1,7 +1,4 @@
-node_modules
+twitter_bot/node_modules/*
+twitter_bot/images/*
 .DS_Store*
 .hubot_history
-./500px_images/*
-./flicker_images/*
-./instagram_images/*
-./rakuten_images/*

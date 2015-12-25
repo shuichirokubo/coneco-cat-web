@@ -9,6 +9,8 @@ async        = require('async')
 # for rakuten webservice
 searchWordArray = ['猫 ぬいぐるみ','猫 雑貨','猫 キーホルダー','猫 インテリア', 'ねこ ぬいぐるみ']
 sortArray       = ['-reviewAverage','-reviewCount','-itemPrice','+itemPrice','-updateTimestamp','standard']
+affiliateId     = '0e2a74f8.b705f347.0e2a74f9.ce1173da'
+applicationId   = 'bfc5bca21a7bac85a197a29ebeab80dd'
 
 module.exports = (robot) ->
 
@@ -23,15 +25,13 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        rakutenUrl     = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json&affiliateId=0e2a74f8.b705f347.0e2a74f9.ce1173da&applicationId=bfc5bca21a7bac85a197a29ebeab80dd'
-        searchWord     = random searchWordArray
-        rakutenUrl     += '&keyword=' + encodeURIComponent(searchWord)
-        sort           = random sortArray
-        rakutenUrl     += '&sort=' + encodeURIComponent(sort)
-        rakuten_client = request_json.createClient(rakutenUrl)
-        console.log("search: #{searchWord}")
-        console.log("search: #{sort}")
+        rakutenUrl = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222?format=json'
+        rakutenUrl += '&affiliateId=' + affiliateId + '&applicationId=' + applicationId
+        searchWord = random searchWordArray
+        rakutenUrl += '&keyword=' + encodeURIComponent(searchWord)
+        rakutenUrl += '&sort=' + encodeURIComponent(random sortArray)
         console.log("search: #{rakutenUrl}")
+        rakuten_client = request_json.createClient(rakutenUrl)
         rakuten_client.get('', (err, res, body) ->
           value       = random [0..body.hits-1]
           console.log("value: #{value}")
@@ -42,11 +42,11 @@ module.exports = (robot) ->
           image_url_2 = if body.Items[value].Item.mediumImageUrls[1] then body.Items[value].Item.mediumImageUrls[1].imageUrl else ''
           request.get(image_url_1)
             .on('response', (res) ->
-            ).pipe(fs.createWriteStream('./rakuten_images/saved_1.jpg'))
+            ).pipe(fs.createWriteStream('./images/rakuten_saved_1.jpg'))
           if image_url_2
             request.get(image_url_2)
               .on('response', (res) ->
-              ).pipe(fs.createWriteStream('./rakuten_images/saved_2.jpg'))
+              ).pipe(fs.createWriteStream('./images/rakuten_saved_2.jpg'))
           tweet = """
             【#{searchWord} グッズ】
             #{item_price}
@@ -63,8 +63,8 @@ module.exports = (robot) ->
           , 10000
         )
     }, (err, result) ->
-      b64img_1 = fs.readFileSync('./rakuten_images/saved_1.jpg', { encoding: 'base64' })
-      b64img_2 = fs.readFileSync('./rakuten_images/saved_2.jpg', { encoding: 'base64' })
+      b64img_1 = fs.readFileSync('./images/rakuten_saved_1.jpg', { encoding: 'base64' })
+      b64img_2 = fs.readFileSync('./images/rakuten_saved_2.jpg', { encoding: 'base64' })
       @clientForImage.post('media/upload', { media_data: b64img_1 }, (err, data, res) ->
         mediaIdStr1 = data.media_id_string
         @clientForImage.post('media/upload', { media_data: b64img_2 }, (err, data, res) ->
@@ -77,7 +77,7 @@ module.exports = (robot) ->
     )
 
   cronjob = new cronJob(
-    cronTime: "0 10,50 * * * *"
+    cronTime: '0 10,50 * * * *'
     start: true
     timeZone: "Asia/Tokyo"
     onTick: ->
