@@ -6,3 +6,27 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+## Stylesheets
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( nivo-lightbox.css )
+Rails.application.config.assets.precompile += %w( nivo-lightbox-theme/default/default.css )
+Rails.application.config.assets.precompile += %w( owl.carousel.css )
+Rails.application.config.assets.precompile += %w( owl.theme.css )
+Rails.application.config.assets.precompile += %w( animate.css )
+Rails.application.config.assets.precompile += %w( style.css )
+
+## JavaScripts
+Rails.application.config.assets.precompile += %w( jquery.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( jquery.easing.min.js )
+Rails.application.config.assets.precompile += %w( jquery.sticky.js )
+Rails.application.config.assets.precompile += %w( jquery.scrollTo.js )
+Rails.application.config.assets.precompile += %w( stellar.js )
+Rails.application.config.assets.precompile += %w( won.min.js )
+Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
+Rails.application.config.assets.precompile += %w( nivo-lightbox.min.js )
+Rails.application.config.assets.precompile += %w( custom.js )
+
+## Images
+Rails.application.config.assets.precompile += %w( logo )

@@ -2,3 +2,4 @@ twitter_bot/node_modules/*
 twitter_bot/images/*
 .DS_Store*
 .hubot_history
+web/config/database.yml
