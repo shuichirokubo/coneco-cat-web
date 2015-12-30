@@ -28,7 +28,7 @@
   <section id="intro" class="intro">
 
     <div class="slogan">
-      <a href="index.html"><%= image_tag 'logo.png' %></a>
+      <!--a href="index.html"><%#= image_tag 'cats.pics-logo.png' %></a-->
     </div>
     <div class="page-scroll">
       <a href="#about">
@@ -54,9 +54,11 @@
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#gallery">My gallery</a></li>
-                <li><a href="#contact">Talk to me</a></li>
+                <!--li><a href="#about">About Me</a></li-->
+                <li><a href="#rakuten">Rakuten</a></li>
+                <!--li><a href="#contact">Talk to me</a></li-->
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#flickr">Flickr</a></li>
               </ul>
             </div>
             <!-- /.Navbar-collapse -->
@@ -68,94 +70,15 @@
   </div>
   <!-- /Navigation -->
 
-  <!-- Section: about -->
-  <section id="about" class="home-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <div class="section-heading text-center">
-            <div class="wow bounceInDown" data-wow-delay="0.2s">
-              <h2>My name is Alice</h2>
-            </div>
-            <p class="wow bounceInUp" data-wow-delay="0.3s">I'm 28 years old from a village near Alpen mountain and I'm a spinster :(</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <%= image_tag 'img1.jpg', :class => 'img-responsive img-rounded' %>
-        </div>
-        <div class="col-md-6">
-          <p><strong>You'll fall in love with me at the first sight</strong></p>
-          <p>
-            Lorem ipsum dolor sit amet, ei purto tamquam ceteros his, eos in graece posidonium. 
-            Ex nullam vidisse salutatus sed, ea persius phaedrum tincidunt vel. Option virtute nonumes ne est. 
-            Id homero expetendis eam, dictas rationibus ut has.
-          </p>
-          <blockquote>
-            Pri pertinacia elaboraret te, an eirmod delicatissimi nec. Eu liber quodsi maiorum mei. 
-            Civibus perfecto rationibus id his, est noster nostrud aliquando at.
-          </blockquote>
-          <a href="#gallery" class="btn btn-skin btn-lg btn-scroll">See my photos</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section: about -->
-
-  <!-- Section: separator -->
-  <section id="separator" class="home-section parallax text-center" data-stellar-background-ratio="0.5">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="align-center txt-shadow">
-            <div class="icon">
-              <i class="fa fa-graduation-cap fa-5x"></i>
-            </div>
-            <span class="color-white">Bachelor of Design</span>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="align-center txt-shadow">
-            <div class="icon">
-              <i class="fa fa-heart fa-5x"></i>
-            </div>
-            <span class="color-white">10x failed in love</span>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="align-center txt-shadow">
-            <div class="icon">
-              <i class="fa fa-plane fa-5x"></i>
-            </div>
-            <span class="color-white">I love traveling</span>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="align-center txt-shadow">
-            <div class="icon">
-              <i class="fa fa-camera fa-5x"></i>
-            </div>
-            <span class="color-white">I'm photographer</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section: separator -->
-
   <!-- Section: gallery -->
-  <section id="gallery" class="home-section text-center bg-gray">
+  <section id="rakuten" class="home-section text-center bg-rakuten">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2>My photo gallery</h2>
-              <p>Take a look at my personal moment, enjoy</p>
+              <h2><%= image_tag 'r.jpg', :height => '50' %> Rakuten</h2>
+              <!--p>Take a look at my personal moment, enjoy</p-->
             </div>
           </div>
         </div>
@@ -166,16 +89,61 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12" >
           <div class="wow bounceInUp" data-wow-delay="0.4s">
-            <div id="owl-works" class="owl-carousel">
-              <div class="item"><a href="img/gallery/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/1.jpg" class="img-responsive" alt="img"></a></div>
-              <div class="item"><a href="img/gallery/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/2.jpg" class="img-responsive " alt="img"></a></div>
-              <div class="item"><a href="img/gallery/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/3.jpg" class="img-responsive " alt="img"></a></div>
-              <div class="item"><a href="img/gallery/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/4.jpg" class="img-responsive " alt="img"></a></div>
-              <div class="item"><a href="img/gallery/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/5.jpg" class="img-responsive " alt="img"></a></div>
-              <div class="item"><a href="img/gallery/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/6.jpg" class="img-responsive " alt="img"></a></div>
-              <div class="item"><a href="img/gallery/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/7.jpg" class="img-responsive " alt="img"></a></div>
-              <div class="item"><a href="img/gallery/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1"><img src="img/gallery/8.jpg" class="img-responsive " alt="img"></a></div>
+            <div id="rakuten-owl-works" class="owl-carousel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+
+  <!-- Section: gallery -->
+  <section id="instagram" class="home-section text-center bg-instagram">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading">
+              <h2>Instagram</h2>
+              <!--p>Take a look at my personal moment, enjoy</p-->
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="instagram-owl-works" class="owl-carousel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+
+  <!-- Section: gallery -->
+  <section id="flickr" class="home-section text-center bg-flickr">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading">
+              <h2>Flickr</h2>
+              <!--p>Take a look at my personal moment, enjoy</p-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="flickr-owl-works" class="owl-carousel"></div>
           </div>
         </div>
       </div>
@@ -187,10 +155,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-12">
-          <p>&copy;Copyright 2014 . Alice Lonely . design by <a href="http://bootstraptaste.co">Bootstrap Themes</a></p>
+          <%= image_tag 'cats.pics-logo.png', :height => '100' %>
+          <p>&copy;Copyright 2015 . Shuichiro Kubo . design by <a href="http://bootstraptaste.co">Bootstrap Themes</a></p>
         </div>
         <!--
-          All links in the footer should remain intact. 
+          All links in the footer should remain intact.
           Licenseing information is available at: http://bootstraptaste.com/license/
           You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Lonely
         -->
@@ -210,6 +179,9 @@
   <%= javascript_include_tag 'nivo-lightbox.min', 'data-turbolinks-track' => false %>
   <!-- Custom Theme JavaScript -->
   <%= javascript_include_tag 'custom', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'instagram-cats.pics-carousel', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'flickr-cats.pics-carousel', 'data-turbolinks-track' => false %>
 
 </body>
 </html>

@@ -280,6 +280,26 @@ hr {
   background: #575757;
 }
 
+.bg-lightblue {
+  background: #B9D3B0;
+}
+
+.bg-blue {
+  background: #81BDA4;
+}
+
+.bg-rakuten {
+  background: #F88F79;
+}
+
+.bg-instagram {
+  background: #B28774;
+}
+
+.bg-flickr {
+  background: #81BDA4;
+}
+
 /* --- section color var --- */
 
 .text-light {
@@ -293,12 +313,12 @@ hr {
 .intro {
   width:100%;
   position:relative;	
-  background: url(../img/bg1.jpg) no-repeat top center;
+  background: url(../images/cats.pics-header.jpg) no-repeat top center;
   background-size: cover;
 }
 
 #intro.intro {
-  padding:200px 0 150px 0;
+  padding:200px 0 400px 0;
 }
 
 .intro .slogan {
@@ -420,15 +440,15 @@ footer {
 }
 
 footer p {
-  color: #f8f8f8;
+  color: #000000;
 }
 
 footer a {
-  color: #fff;
+  color: #000000;
 }
 
 footer a:hover {
-  color: #ccc;
+  color: #F88F79;
 }
 
 /* ==========================
@@ -436,7 +456,7 @@ Parallax
 ============================= */
 
 #separator {
-  background-image: url(../img/parallax-bg.jpg);
+  background-image: url(../images/cats.pics-header.jpg);
 }
 
 #separator .icon {

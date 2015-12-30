@@ -27,6 +27,9 @@ Rails.application.config.assets.precompile += %w( won.min.js )
 Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
 Rails.application.config.assets.precompile += %w( nivo-lightbox.min.js )
 Rails.application.config.assets.precompile += %w( custom.js )
+Rails.application.config.assets.precompile += %w( rakuten-cats.pics-carousel.js )
+Rails.application.config.assets.precompile += %w( instagram-cats.pics-carousel.js )
+Rails.application.config.assets.precompile += %w( flickr-cats.pics-carousel.js )
 
 ## Images
-Rails.application.config.assets.precompile += %w( logo )
+Rails.application.config.assets.precompile += %w( cats.pics-logo.png )

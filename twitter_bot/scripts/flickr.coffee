@@ -6,7 +6,7 @@ fs           = require('fs')
 twit         = require('twit')
 async        = require('async')
 
-# for instagram
+# for flickr
 textArray = ['ねこ','猫','kitty','ネコ','neko','cat']
 sortArray = ['date-posted-desc','date-taken-desc','interestingness-desc','interestingness-asc']
 
@@ -23,26 +23,26 @@ module.exports = (robot) ->
   do_tweet = ->
     async.series({
       search: (callback) ->
-        flickerUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4480c9059211841b6a5101941b2724df&extras=owner_name%2Curl_s%2Ctags&format=json&nojsoncallback=1'
+        flickrUrl     = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4480c9059211841b6a5101941b2724df&extras=owner_name%2Curl_s%2Ctags&format=json&nojsoncallback=1'
         text           = random textArray
-        flickerUrl    += '&text=' + encodeURIComponent(text)
+        flickrUrl    += '&text=' + encodeURIComponent(text)
         sort           = random sortArray
-        flickerUrl    += '&sort=' + encodeURIComponent(sort)
-        flicker_client = request_json.createClient(flickerUrl)
+        flickrUrl    += '&sort=' + encodeURIComponent(sort)
+        flickr_client = request_json.createClient(flickrUrl)
         console.log("search: #{text}")
         console.log("search: #{sort}")
-        console.log("search: #{flickerUrl}")
-        flicker_client.get('', (err, res, body) ->
+        console.log("search: #{flickrUrl}")
+        flickr_client.get('', (err, res, body) ->
           value = random [0..body.photos.perpage-1]
           console.log("value: #{value}")
           request.get(body.photos.photo[value].url_s)
             .on('response', (res) ->
-            ).pipe(fs.createWriteStream('./images/flicker_saved.jpg'))
+            ).pipe(fs.createWriteStream('./images/flickr_saved.jpg'))
           tweet = """
             #{body.photos.photo[value].title}
-            by Flicker@#{body.photos.photo[value].ownername}
+            by Flickr@#{body.photos.photo[value].ownername}
             #{body.photos.photo[value].tags.substring(0, 30)}...
-            \#Flicker \#cat \#猫 \#ネコ \#ねこ
+            \#Flickr \#cat \#猫 \#ネコ \#ねこ
           """
           callback(null, tweet)
         )
@@ -53,7 +53,7 @@ module.exports = (robot) ->
           , 5000
         )
     }, (err, result) ->
-      b64img = fs.readFileSync('./images/flicker_saved.jpg', { encoding: 'base64' })
+      b64img = fs.readFileSync('./images/flickr_saved.jpg', { encoding: 'base64' })
       @clientForImage.post('media/upload', { media_data: b64img }, (err, data, res) ->
         mediaIdStr = data.media_id_string
         params = { status: result.search, media_ids: [mediaIdStr] }
