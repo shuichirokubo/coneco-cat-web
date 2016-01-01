@@ -32,5 +32,5 @@ Rails.application.config.assets.precompile += %w( instagram-cats.pics-carousel.j
 Rails.application.config.assets.precompile += %w( flickr-cats.pics-carousel.js )
 
 ## Images
-Rails.application.config.assets.precompile += %w( cats.pics-logo.png )
 Rails.application.config.assets.precompile += %w( cat2.pics-logo.png )
+Rails.application.config.assets.precompile += %w( favicon.ico )
