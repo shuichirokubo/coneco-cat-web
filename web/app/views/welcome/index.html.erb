@@ -55,8 +55,8 @@
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#rakuten">Rakuten</a></li>
                 <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#rakuten">Rakuten</a></li>
                 <li><a href="#flickr">Flickr</a></li>
               </ul>
             </div>
@@ -69,31 +69,43 @@
   </div>
   <!-- /Navigation -->
 
-  <!-- Section: gallery -->
-  <section id="rakuten" class="home-section text-center bg-rakuten">
+  <!-- Section: about -->
+    <section id="about" class="home-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-          <div class="wow bounceInDown" data-wow-delay="0.4s">
-            <div class="section-heading">
-              <h2><%= image_tag 'r.jpg', :height => '50', :class => 'img-rakuten' %>RAKUTEN</h2>
-            </div>
+          <div class="section-heading text-center">
+          <div class="wow bounceInDown" data-wow-delay="0.2s">
+            <h3><b>更新する度に新たな猫さん達があらわれるよ :(</b></h3>
+          </div>
+          <!--p class="wow bounceInUp" data-wow-delay="0.3s">楽しんでくださいね!</p-->
           </div>
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12" >
-          <div class="wow bounceInUp" data-wow-delay="0.4s">
-            <div id="rakuten-owl-works" class="owl-carousel"></div>
-          </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <%= image_tag 'cats.pics-logo.png' %>
         </div>
+        <div class="col-md-4"></div>
+        <!--div class="col-md-6"-->
+          <!--p><strong>You'll fall in love with me at the first sight</strong></p>
+          <p>
+          Lorem ipsum dolor sit amet, ei purto tamquam ceteros his, eos in graece posidonium.
+          Ex nullam vidisse salutatus sed, ea persius phaedrum tincidunt vel. Option virtute nonumes ne est.
+          Id homero expetendis eam, dictas rationibus ut has.
+          </p>
+          <blockquote>
+          Pri pertinacia elaboraret te, an eirmod delicatissimi nec. Eu liber quodsi maiorum mei.
+          Civibus perfecto rationibus id his, est noster nostrud aliquando at.
+          </blockquote-->
+        <!--/div-->
       </div>
     </div>
   </section>
-  <!-- /Section: services -->
+  <!-- /Section: about -->
 
   <!-- Section: gallery -->
   <section id="instagram" class="home-section text-center bg-instagram">
@@ -108,12 +120,36 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12" >
           <div class="wow bounceInUp" data-wow-delay="0.4s">
             <div id="instagram-owl-works" class="owl-carousel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+
+  <!-- Section: gallery -->
+  <section id="rakuten" class="home-section text-center bg-rakuten">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading">
+              <h2><%= image_tag 'r.jpg', :height => '50', :class => 'img-rakuten' %>RAKUTEN</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="rakuten-owl-works" class="owl-carousel"></div>
           </div>
         </div>
       </div>
@@ -134,7 +170,6 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12" >

@@ -29,6 +29,7 @@ var set_rakuten_pics = function() {
         item += "</a>";
         item += "<p class='text-black'><B>" + pic.Item.itemName + "</B></p>";
         item += "<p class='text-black'><I>" + pic.Item.itemPrice + " 円</I></p>";
+        item += "<a href='" + pic.Item.affiliateUrl + "' class='btn btn-skin btn-lg btn-scroll'><B>もっと見る</B></a>";
         item += "</div>";
         $('#rakuten-owl-works').append(item);
       });
