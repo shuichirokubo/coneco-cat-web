@@ -52,3 +52,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'simplecov-rcov'
 end
+
+group :production, :staging do
+  gem 'rails_12factor'
+end
