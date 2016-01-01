@@ -15,9 +15,10 @@
   <%= stylesheet_link_tag 'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'default', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'font-awesome.min', media: 'all', 'data-turbolinks-track' => false %>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-  <!--link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
-  <!--link href="color/default.css" rel="stylesheet"-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -55,10 +56,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#intro"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                <li><a href="#instagram"><%= image_tag 'i.png', :height => '50', :class => 'img-flickr' %></a></li>
-                <li><a href="#rakuten"><%= image_tag 'r.jpg', :height => '50', :class => 'img-flickr' %></a></li>
-                <li><a href="#flickr"><%= image_tag 'f.png', :height => '50', :class => 'img-flickr' %></a></li>
+                <!--li class="active"><a href="#intro"><i class="glyphicon glyphicon-home"></i> Home</a></li-->
+                <li><a href="#instagram"><%= image_tag 'i.png', :height => '45', :class => 'img-flickr' %></a></li>
+                <li><a href="#rakuten"><%= image_tag 'r.jpg', :height => '45', :class => 'img-flickr' %></a></li>
+                <li><a href="#flickr"><%= image_tag 'f.png', :height => '45', :class => 'img-flickr' %></a></li>
               </ul>
             </div>
             <!-- /.Navbar-collapse -->
@@ -178,7 +179,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-12">
           <%= image_tag 'cat2.pics-logo.png', :height => '100' %>
-          <p>&copy;Copyright 2016 . cat2.pics . design by cat2.pics</p>
+          <p>&copy;Copyright 2016 powered by cat2.pics</p>
         </div>
       </div>
     </div>
@@ -186,7 +187,7 @@
 
   <!-- Core JavaScript Files -->
   <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track' => false %>
-  <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
+  <%#= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'jquery.easing.min', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'jquery.sticky', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'jquery.scrollTo', 'data-turbolinks-track' => false %>
@@ -194,7 +195,7 @@
   <%= javascript_include_tag 'wow.min', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'nivo-lightbox.min', 'data-turbolinks-track' => false %>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <!--script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script-->
   <!-- Custom Theme JavaScript -->
   <%= javascript_include_tag 'custom', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>

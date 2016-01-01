@@ -247,8 +247,8 @@ hr {
 ============================ */
 
 .home-section {
-  padding-top: 120px;
-  padding-bottom: 110px;
+  padding-top: 150px;
+  padding-bottom: 20px;
   display:block;
   position:relative;
   z-index:120;
@@ -345,12 +345,12 @@ hr {
 .intro {
   width:100%;
   position:relative;	
-  background: url(../images/cats.pics-header.jpg) no-repeat top center;
+  background: url(../images/cat2.pics-header.jpg) no-repeat top center;
   background-size: cover;
 }
 
 #intro.intro {
-  padding:200px 0 400px 0;
+  padding:200px 0 350px 0;
 }
 
 .intro .slogan {
@@ -469,6 +469,7 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 footer {
   text-align: center;
   padding: 50px 0 30px;
+  background-color: #fff !important;
 }
 
 footer p {

@@ -15,6 +15,8 @@ Rails.application.config.assets.precompile += %w( owl.carousel.css )
 Rails.application.config.assets.precompile += %w( owl.theme.css )
 Rails.application.config.assets.precompile += %w( animate.css )
 Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( default.css )
+Rails.application.config.assets.precompile += %w( font-awesome.min.css )
 
 ## JavaScripts
 Rails.application.config.assets.precompile += %w( jquery.min.js )
