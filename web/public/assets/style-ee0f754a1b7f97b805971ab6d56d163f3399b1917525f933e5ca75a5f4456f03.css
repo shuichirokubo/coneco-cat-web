@@ -1,4 +1,5 @@
 /* ==== Google font ==== */
+
 @import url(http://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:400,300,600,400italic,700);
 
 
@@ -349,7 +350,7 @@ hr {
 }
 
 #intro.intro {
-  padding:200px 0 350px 0;
+  padding:200px 0 300px 0;
 }
 
 .intro .slogan {
