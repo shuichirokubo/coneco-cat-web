@@ -300,10 +300,19 @@ hr {
   background: #81BDA4;
 }
 
+.img-rakuten {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
 /* --- section color var --- */
 
 .text-light {
-  color: #fff;
+  color: #81BDA4;
+}
+
+.text-black {
+  color: #000000;
 }
 
 /* ===========================

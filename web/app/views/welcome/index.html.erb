@@ -14,8 +14,9 @@
   <%= stylesheet_link_tag 'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => false %>
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="color/default.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <!--link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
+  <!--link href="color/default.css" rel="stylesheet"-->
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -54,9 +55,7 @@
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#intro">Home</a></li>
-                <!--li><a href="#about">About Me</a></li-->
                 <li><a href="#rakuten">Rakuten</a></li>
-                <!--li><a href="#contact">Talk to me</a></li-->
                 <li><a href="#instagram">Instagram</a></li>
                 <li><a href="#flickr">Flickr</a></li>
               </ul>
@@ -77,8 +76,7 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2><%= image_tag 'r.jpg', :height => '50' %> Rakuten</h2>
-              <!--p>Take a look at my personal moment, enjoy</p-->
+              <h2><%= image_tag 'r.jpg', :height => '50', :class => 'img-rakuten' %>RAKUTEN</h2>
             </div>
           </div>
         </div>
@@ -104,8 +102,7 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2>Instagram</h2>
-              <!--p>Take a look at my personal moment, enjoy</p-->
+              <h2><%= image_tag 'i.png', :height => '50', :class => 'img-rakuten' %>INSTAGRAM</h2>
             </div>
           </div>
         </div>
@@ -131,8 +128,7 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2>Flickr</h2>
-              <!--p>Take a look at my personal moment, enjoy</p-->
+              <h2><%= image_tag 'f.png', :height => '50', :class => 'img-rakuten' %>FLICKR</h2>
             </div>
           </div>
         </div>
@@ -156,13 +152,8 @@
       <div class="row">
         <div class="col-md-12 col-lg-12">
           <%= image_tag 'cats.pics-logo.png', :height => '100' %>
-          <p>&copy;Copyright 2015 . Shuichiro Kubo . design by <a href="http://bootstraptaste.co">Bootstrap Themes</a></p>
+          <p>&copy;Copyright 2015 . K2 . design by <a href="http://bootstraptaste.co">Bootstrap Themes</a></p>
         </div>
-        <!--
-          All links in the footer should remain intact.
-          Licenseing information is available at: http://bootstraptaste.com/license/
-          You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Lonely
-        -->
       </div>
     </div>
   </footer>
@@ -174,9 +165,10 @@
   <%= javascript_include_tag 'jquery.sticky', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'jquery.scrollTo', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'stellar', 'data-turbolinks-track' => false %>
-  <%= javascript_include_tag 'won.min', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'wow.min', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'nivo-lightbox.min', 'data-turbolinks-track' => false %>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <!-- Custom Theme JavaScript -->
   <%= javascript_include_tag 'custom', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>
