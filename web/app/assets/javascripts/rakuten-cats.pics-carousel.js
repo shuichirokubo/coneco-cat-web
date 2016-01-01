@@ -25,11 +25,11 @@ var set_rakuten_pics = function() {
         var imageUrl = pic.Item.mediumImageUrls[0].imageUrl.replace(/128x128/g, '512x512');
         item += "<div class='item'>";
         item += "<a href='" + pic.Item.affiliateUrl + "' data-lightbox-gallery='gallery1' target='_blank'>";
-        item += "<img src='" + imageUrl + "' class='img-responsive' alt='img'>";
+        item += "<img src='" + imageUrl + "' class='img-responsive img-round' alt='img'>";
         item += "</a>";
         item += "<p class='text-black'><B>" + pic.Item.itemName + "</B></p>";
-        item += "<p class='text-black'><I>" + pic.Item.itemPrice + " 円</I></p>";
-        item += "<a href='" + pic.Item.affiliateUrl + "' class='btn btn-skin btn-lg btn-scroll'><B>もっと見る</B></a>";
+        item += "<p class='text-black'><I>" + pic.Item.itemPrice.toLocaleString() + " 円</I></p>";
+        item += "<a href='" + pic.Item.affiliateUrl + "' class='btn btn-skin btn-lg btn-scroll text-white'><B>もっと見る</B></a>";
         item += "</div>";
         $('#rakuten-owl-works').append(item);
       });

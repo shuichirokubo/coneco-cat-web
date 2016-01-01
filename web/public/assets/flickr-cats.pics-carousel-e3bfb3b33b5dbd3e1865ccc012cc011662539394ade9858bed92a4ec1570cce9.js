@@ -23,8 +23,8 @@ var set_flickr_pics = function() {
         var item = String();
         //var imageUrl = pic.Item.mediumImageUrls[0].imageUrl.replace(/128x128/g, '512x512');
         item += "<div class='item'>";
-        item += "<img src='" + pic.url_s + "' class='img-responsive' alt='img'>";
-        item += "<p class='text-black'><B>" + pic.tags + "</B></p>";
+        item += "<img src='" + pic.url_s + "' class='img-responsive img-round' alt='img'>";
+        //item += "<p class='text-black'><B>" + pic.tags + "</B></p>";
         item += "</div>";
         $('#flickr-owl-works').append(item);
       });

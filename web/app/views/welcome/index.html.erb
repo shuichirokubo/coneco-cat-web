@@ -55,10 +55,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#instagram">Instagram</a></li>
-                <li><a href="#rakuten">Rakuten</a></li>
-                <li><a href="#flickr">Flickr</a></li>
+                <li class="active"><a href="#intro"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                <li><a href="#instagram"><%= image_tag 'i.png', :height => '50', :class => 'img-flickr' %></a></li>
+                <li><a href="#rakuten"><%= image_tag 'r.jpg', :height => '50', :class => 'img-flickr' %></a></li>
+                <li><a href="#flickr"><%= image_tag 'f.png', :height => '50', :class => 'img-flickr' %></a></li>
               </ul>
             </div>
             <!-- /.Navbar-collapse -->
@@ -79,7 +79,6 @@
             <div class="wow bounceInDown" data-wow-delay="0.2s">
               <h3><b>更新する度に新たな猫さん達があらわれるよ :(</b></h3>
             </div>
-            <!--p class="wow bounceInUp" data-wow-delay="0.3s">楽しんでくださいね!</p-->
           </div>
         </div>
       </div>
@@ -91,18 +90,6 @@
             <%= image_tag 'cat2.pics-logo.png', :height => '180' %>
           </div>
         </div>
-        <!--div class="col-md-6"-->
-          <!--p><strong>You'll fall in love with me at the first sight</strong></p>
-          <p>
-          Lorem ipsum dolor sit amet, ei purto tamquam ceteros his, eos in graece posidonium.
-          Ex nullam vidisse salutatus sed, ea persius phaedrum tincidunt vel. Option virtute nonumes ne est.
-          Id homero expetendis eam, dictas rationibus ut has.
-          </p>
-          <blockquote>
-          Pri pertinacia elaboraret te, an eirmod delicatissimi nec. Eu liber quodsi maiorum mei.
-          Civibus perfecto rationibus id his, est noster nostrud aliquando at.
-          </blockquote-->
-        <!--/div-->
       </div>
     </div>
   </section>
@@ -115,7 +102,8 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2><%= image_tag 'i.png', :height => '50', :class => 'img-rakuten' %>INSTAGRAM</h2>
+              <!--h2><%#= image_tag 'i.png', :height => '50', :class => 'img-rakuten' %>INSTAGRAM</h2-->
+              <%= image_tag 'i.png', :height => '60', :class => 'img-rakuten' %>
             </div>
           </div>
         </div>
@@ -140,7 +128,8 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2><%= image_tag 'r.jpg', :height => '50', :class => 'img-rakuten' %>RAKUTEN</h2>
+              <!--h2><%#= image_tag 'r.jpg', :height => '50', :class => 'img-rakuten' %>RAKUTEN</h2-->
+              <%= image_tag 'r.jpg', :height => '60', :class => 'img-rakuten' %>
             </div>
           </div>
         </div>
@@ -165,7 +154,8 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
             <div class="section-heading">
-              <h2><%= image_tag 'f.png', :height => '50', :class => 'img-rakuten' %>FLICKR</h2>
+              <!--h2><%#= image_tag 'f.png', :height => '50', :class => 'img-rakuten' %>FLICKR</h2-->
+              <%= image_tag 'f.png', :height => '60', :class => 'img-rakuten' %>
             </div>
           </div>
         </div>

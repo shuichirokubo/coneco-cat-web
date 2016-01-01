@@ -19,7 +19,7 @@ var set_instagram_pics = function() {
         var item = String();
         item += "<div class='item'>";
         item += "<a href='" + pic.link + "' data-lightbox-gallery='gallery2' target='_blank'>";
-        item += "<img src='" + pic.images.standard_resolution.url + "' class='img-responsive' alt='img'></a>";
+        item += "<img src='" + pic.images.standard_resolution.url + "' class='img-responsive img-round' alt='img'></a>";
         item += "<p class='text-black'><B>" + pic.caption.text + "</B></p>";
         item += "<a href='" + pic.link + "' class='btn btn-skin btn-lg btn-scroll text-white'><B>もっと見る</B></a>";
         item += "</div>";

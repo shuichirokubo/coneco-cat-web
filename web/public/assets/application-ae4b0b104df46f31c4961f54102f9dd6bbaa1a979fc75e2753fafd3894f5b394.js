@@ -13708,8 +13708,8 @@ var set_flickr_pics = function() {
         var item = String();
         //var imageUrl = pic.Item.mediumImageUrls[0].imageUrl.replace(/128x128/g, '512x512');
         item += "<div class='item'>";
-        item += "<img src='" + pic.url_s + "' class='img-responsive' alt='img'>";
-        item += "<p class='text-black'><B>" + pic.tags + "</B></p>";
+        item += "<img src='" + pic.url_s + "' class='img-responsive img-round' alt='img'>";
+        //item += "<p class='text-black'><B>" + pic.tags + "</B></p>";
         item += "</div>";
         $('#flickr-owl-works').append(item);
       });
@@ -13747,7 +13747,7 @@ var set_instagram_pics = function() {
         var item = String();
         item += "<div class='item'>";
         item += "<a href='" + pic.link + "' data-lightbox-gallery='gallery2' target='_blank'>";
-        item += "<img src='" + pic.images.standard_resolution.url + "' class='img-responsive' alt='img'></a>";
+        item += "<img src='" + pic.images.standard_resolution.url + "' class='img-responsive img-round' alt='img'></a>";
         item += "<p class='text-black'><B>" + pic.caption.text + "</B></p>";
         item += "<a href='" + pic.link + "' class='btn btn-skin btn-lg btn-scroll text-white'><B>もっと見る</B></a>";
         item += "</div>";
@@ -14034,11 +14034,11 @@ var set_rakuten_pics = function() {
         var imageUrl = pic.Item.mediumImageUrls[0].imageUrl.replace(/128x128/g, '512x512');
         item += "<div class='item'>";
         item += "<a href='" + pic.Item.affiliateUrl + "' data-lightbox-gallery='gallery1' target='_blank'>";
-        item += "<img src='" + imageUrl + "' class='img-responsive' alt='img'>";
+        item += "<img src='" + imageUrl + "' class='img-responsive img-round' alt='img'>";
         item += "</a>";
         item += "<p class='text-black'><B>" + pic.Item.itemName + "</B></p>";
-        item += "<p class='text-black'><I>" + pic.Item.itemPrice + " 円</I></p>";
-        item += "<a href='" + pic.Item.affiliateUrl + "' class='btn btn-skin btn-lg btn-scroll'><B>もっと見る</B></a>";
+        item += "<p class='text-black'><I>" + pic.Item.itemPrice.toLocaleString() + " 円</I></p>";
+        item += "<a href='" + pic.Item.affiliateUrl + "' class='btn btn-skin btn-lg btn-scroll text-white'><B>もっと見る</B></a>";
         item += "</div>";
         $('#rakuten-owl-works').append(item);
       });
