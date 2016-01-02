@@ -46,6 +46,13 @@ gem 'newrelic_rpm'
 # Use debugger
 gem 'debugger', group: [:development, :test]
 
+# Auth
+gem 'devise'
+gem 'omniauth'
+
+# Facebook Auth
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

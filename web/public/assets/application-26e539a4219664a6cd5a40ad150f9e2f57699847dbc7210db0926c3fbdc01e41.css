@@ -3308,6 +3308,7 @@ a {
 a:hover,
 a:focus {
   text-decoration: none;
+  color: #F88F79 !important;
 }
 
 .light {
@@ -3316,6 +3317,22 @@ a:focus {
 
 img.img-responsive {
   margin-bottom: 20px;
+}
+
+.animated-hover:hover {
+  color: #F88F79;
+}
+
+.fa-6x {
+  font-size: 6em !important;
+}
+
+.fa-7x {
+  font-size: 7em !important;
+}
+
+.fa-8x {
+  font-size: 8em !important;
 }
 
 
@@ -3590,6 +3607,18 @@ hr {
   color: #F88F79;
 }
 
+.text-jumbo {
+  font-size: 60px;
+}
+
+.text-medium {
+  font-size: 18px;
+}
+
+.space-1 {
+  margin-bottom: -15px;
+}
+
 /* ===========================
 --- Intro
 ============================ */
@@ -3602,7 +3631,7 @@ hr {
 }
 
 #intro.intro {
-  padding:200px 0 350px 0;
+  padding:200px 0 150px 0;
 }
 
 .intro .slogan {
@@ -3924,6 +3953,10 @@ a.btn:hover {
   height: 40px;
   margin-top: 10px;
   font-size: 20px;
+  }
+
+  .text-jumbo {
+    font-size: 35px;
   }
 }
 /*
