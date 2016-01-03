@@ -53,6 +53,20 @@ gem 'omniauth'
 # Facebook Auth
 gem 'omniauth-facebook'
 
+# Facebook APIs
+gem 'koala', '~> 2.2'
+
+# For APIs
+gem 'grape', '~> 0.9.0'
+gem 'grape-jbuilder'
+group :development, :test do
+  gem 'json_expressions'
+end
+
+# SITEMAP
+gem 'sitemap_generator'
+gem 'meta-tags', :require => 'meta_tags'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

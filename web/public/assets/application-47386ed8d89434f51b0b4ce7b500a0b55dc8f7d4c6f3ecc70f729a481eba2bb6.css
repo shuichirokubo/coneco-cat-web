@@ -3631,7 +3631,7 @@ hr {
 }
 
 #intro.intro {
-  padding:200px 0 150px 0;
+  padding:200px 0 100px 0;
 }
 
 .intro .slogan {
@@ -3958,6 +3958,25 @@ a.btn:hover {
   .text-jumbo {
     font-size: 35px;
   }
+}
+
+/* ==== Facebok ==== */
+
+.fb {
+  font-size: 1.5rem;
+  display: table-cell;
+  width: 270px;
+  height: 65px;
+  vertical-align: middle;
+  color: #fff !important;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: #3b5998;
+}
+
+.fb-body {
+  width: 280px;
+  margin: 30px auto 45px;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
