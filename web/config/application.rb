@@ -33,5 +33,6 @@ module Web
     config.middleware.use(Rack::Config) do |env|
       env['api.tilt.root'] = Rails.root.join 'app', 'views', 'api'
     end
+    config.autoload_paths += Dir["#{config.root}/lib"]
   end
 end
