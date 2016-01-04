@@ -16,6 +16,7 @@ var set_instagram_pics = function() {
   get_instagram_pics()
     .then(function(pics) {
       $.each(pics.data, function(index, pic) {
+        console.log(pic);
         var item = String();
         item += "<div class='item'>";
         item += "<a href='" + pic.link + "' data-lightbox-gallery='gallery2' target='_blank'>";

@@ -43,7 +43,7 @@ __END__
 
 bundle exec rails runner Tasks::FetchRakutenCats.execute
 
-imysql> desc rakuten_cats;
+mysql> desc rakuten_cats;
 +----------------+--------------+------+-----+---------+----------------+
 | Field          | Type         | Null | Key | Default | Extra          |
 +----------------+--------------+------+-----+---------+----------------+
