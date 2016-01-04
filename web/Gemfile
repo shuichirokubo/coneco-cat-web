@@ -67,12 +67,16 @@ end
 gem 'sitemap_generator'
 gem 'meta-tags', :require => 'meta_tags'
 
+# Google Analytics
+gem 'google-analytics-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'quiet_assets'
   gem 'pry-rails'
+  gem 'pry'
 
   # Normalize
   gem 'rspec-rails', '~> 3.0.0'
