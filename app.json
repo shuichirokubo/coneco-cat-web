@@ -1,0 +1,38 @@
+{
+  "name": "coneco-cat-web",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "FACEBOOK_KEY": {
+      "required": true
+    },
+    "FACEBOOK_SECRET": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "TZ": {
+      "required": true
+    }
+  },
+  "addons": [
+    "cleardb",
+    "newrelic",
+    "heroku-postgresql",
+    "scheduler"
+  ]
+}
