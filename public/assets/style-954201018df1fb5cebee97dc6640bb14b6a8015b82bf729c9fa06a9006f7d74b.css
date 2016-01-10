@@ -1,4 +1,5 @@
 /* ==== Google font ==== */
+
 @import url(http://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:400,300,600,400italic,700);
 
 
@@ -282,10 +283,10 @@ hr {
 .section-heading i {
   margin-bottom: 20px;
 }
-
 .section-heading p{
   font-size : 20px;
-  color : black;
+  color : black; 
+
 }
 
 /* --- section bg var --- */
