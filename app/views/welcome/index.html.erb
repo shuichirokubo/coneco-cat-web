@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%= favicon_link_tag('favicon.ico') %>
+  <title>Cat2Pics - 世界中のネコをあつめよう</title>
+  <!-- CSS -->
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'nivo-lightbox', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'nivo-lightbox-theme/default/default', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'owl.carousel', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'default', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'font-awesome.min', media: 'all', 'data-turbolinks-track' => false %>
+  <!--link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="load"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div id="navigation">
+    <nav class="navbar navbar-custom" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <i class="fa fa-bars"></i>
+              </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#instagram">INSTAGRAM</a></li>
+                <li><a href="#rakuten">RAKUTEN</a></li>
+                <li><a href="#flickr">FLICKR</a></li>
+                <% if user_signed_in? %>
+                </li>
+                  <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
+                </li>
+                <li>
+                  <p><%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %></p>
+                </li>
+                <% else %>
+                <li>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal">アカウント作成</button>
+                  <div class="modal" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+                          </button>
+                          <h3 class="modal-title">会員登録</h3>
+                        </div><!-- /modal-header -->
+                        <div class="modal-body fb-body">
+                          <%= link_to "Facebookで登録する", user_omniauth_authorize_path(:facebook), :class => 'btn btn-info fb' %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">ログイン</button>
+                  <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+                          </button>
+                          <h3 class="modal-title">ログイン</h3>
+                        </div><!-- /modal-header -->
+                        <div class="modal-body fb-body">
+                          <%= link_to "Facebookでログイン", user_omniauth_authorize_path(:facebook), :class => 'btn btn-info fb' %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <% end %>
+    <!--p><%#= link_to 'ユーザー情報編集', edit_user_registration_path %></p>
+              </ul>
+            </div>
+            <!-- /.Navbar-collapse -->
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </nav>
+  </div>
+  <!-- /Navigation -->
+  
+    <!-- Section: intro -->
+  <section id="intro" class="intro">
+    <div class="slogan">
+      <!--a href="index.html"><%#= image_tag 'cats.pics-logo.png' %></a-->
+      <p class='text-white text-jumbo space-1'><B>おかえりなさい</B></p>
+      <p class='text-white text-medium'><B>写真でも雑貨でもなんでも、世界中のネコをあつめよう</B></p>
+    </div>
+    <div class="page-scroll">
+      <a href="#about"><i class="fa fa-angle-down fa-6x animated animated-hover"></i></a>
+    </div>
+  </section>
+  <!-- /Section: intro -->
+
+  <!-- Section: about -->
+    <section id="about" class="home-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+          <div class="section-heading text-center">
+            <div class="wow bounceInDown" data-wow-delay="0.2s">
+              <h3><b>更新する度に新たな猫さん達があらわれるよ :(</b></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+          <div class="section-heading text-center">
+            <%= image_tag 'cat2.pics-logo.png', :height => '180' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: about -->
+
+  <!-- Section: separator -->
+  <!--section id="separator" class="home-section parallax text-center" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-sm-4 col-md-4">
+          <div class="align-center txt-shadow">
+            <%#= image_tag 'i.png', :height => '150', :class => 'img-rakuten' %>
+            <span class="color-white">10x failed in love</span>
+          </div>
+        </div>
+        <div class="col-xs-8 col-sm-4 col-md-4">
+          <div class="align-center txt-shadow">
+            <%#= image_tag 'r.jpg', :height => '150', :class => 'img-rakuten' %>
+            <span class="color-white">I love traveling</span>
+          </div>
+        </div>
+        <div class="col-xs-8 col-sm-4 col-md-4">
+          <div class="align-center txt-shadow">
+            <%#= image_tag 'f.png', :height => '150', :class => 'img-rakuten' %>
+            <span class="color-white">I'm photographer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section-->
+  <!-- /Section: separator -->
+
+  <!-- Section: gallery -->
+  <section id="instagram" class="home-section text-left bg-instagram">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading" class="navbar-toggle" data-toggle="collapse" data-target="#ghost_area_instagram">
+              <!--h2><%#= image_tag 'i.png', :height => '50', :class => 'img-rakuten' %>INSTAGRAM</h2-->
+              <%= image_tag 'i.png', :height => '60', :class => 'img-rakuten' %><p>INSTAGRAM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container collapse" id="ghost_area_instagram">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="instagram-owl-works" class="owl-carousel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+
+  <!-- Section: gallery -->
+  <section id="rakuten" class="home-section text-left bg-rakuten">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading" class="navbar-toggle" data-toggle="collapse" data-target="#ghost_area_rakuten">
+              <!--h2><%#= image_tag 'r.jpg', :height => '50', :class => 'img-rakuten' %>RAKUTEN</h2-->
+              <%= image_tag 'r.jpg', :height => '60', :class => 'img-rakuten' %><p>RAKUTEN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container collapse" id="ghost_area_rakuten">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="rakuten-owl-works" class="owl-carousel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+  
+
+<section  class="home-section text-left bg-flickr">
+
+  <!-- Section: gallery -->
+    <div class="container" id="flickr">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading" class="navbar-toggle" data-toggle="collapse" data-target="#ghost_area_flickr">
+              <!--h2><%#= image_tag 'f.png', :height => '50', :class => 'img-rakuten' %>FLICKR</h2-->
+              <%= image_tag 'f.png', :height => '60', :class => 'img-rakuten' %><p>FLICKR</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container collapse" id="ghost_area_flickr">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="flickr-owl-works" class="owl-carousel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <%= image_tag 'cat2.pics-logo.png', :height => '100' %>
+          <p>&copy;Copyright 2016 powered by cat2.pics</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Files -->
+  <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track' => false %>
+  <%#= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'jquery.easing.min', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'jquery.sticky', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'jquery.scrollTo', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'stellar', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'wow.min', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'nivo-lightbox.min', 'data-turbolinks-track' => false %>
+  <!--script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script-->
+  <!-- Custom Theme JavaScript -->
+  <%= javascript_include_tag 'custom', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'instagram-cats.pics-carousel', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'flickr-cats.pics-carousel', 'data-turbolinks-track' => false %>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- cat2.pics -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1613308380633846"
+     data-ad-slot="6089949610"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+</html>
