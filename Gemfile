@@ -72,6 +72,9 @@ gem 'google-analytics-rails'
 # Paging
 gem 'kaminari'
 
+# config
+gem 'config'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
