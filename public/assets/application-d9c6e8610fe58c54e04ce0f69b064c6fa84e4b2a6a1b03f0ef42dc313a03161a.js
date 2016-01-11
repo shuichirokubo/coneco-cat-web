@@ -11640,6 +11640,9 @@ return jQuery;
   };
 
 }).call(this);
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+;
 /*!
  * Bootstrap v3.1.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
