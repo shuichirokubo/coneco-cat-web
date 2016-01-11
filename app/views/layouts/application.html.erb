@@ -1,22 +1,158 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Web</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= analytics_init if Rails.env.production? %>
-</head>
-<body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>cat2.pics - 世界中のネコをあつめて共有しよう -</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- CSS -->
+    <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'nivo-lightbox', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'nivo-lightbox-theme/default/default', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'owl.carousel', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'default', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'font-awesome.min', media: 'all', 'data-turbolinks-track' => false %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
+  </head>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
-  <%# flash.each do |key, value| %>
-    <!--div class="alert alert-info alert-dismissible" role="alert">
-      <%#= value %>
-    </div-->
-  <%# end %>
+    <!-- Navigation -->
+    <div id="navigation">
+      <nav class="navbar navbar-custom" role="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                  <i class="fa fa-bars"></i>
+                </button>
+              </div>
 
-  <%= yield %>
+              <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                  <% if controller.controller_name == 'welcome' %>
+                    <li class='active'><a href='#intro'>HOME</a></li>
+                    <li><a href='#ranking'>RANKING</a></li>
+                  <% else %>
+                    <li class='active'><a href='welcome'>HOME</a></li>
+                    <li><a href='welcome'>RANKING</a></li>
+                  <% end %>
+                  <li><a href='about'>ABOUT</a></li>
+                  <% if user_signed_in? %>
+                  </li>
+                    <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
+                  </li>
+                  <li>
+                    <p><%= link_to 'ログアウト', 'logout', :method => :delete %></p>
+                  </li>
+                  <% else %>
+                  <li>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal">アカウント作成</button>
+                    <div class="modal" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+                            </button>
+                            <h3 class="modal-title">会員登録</h3>
+                          </div><!-- /modal-header -->
+                          <div class="modal-body fb-body">
+                            <%= link_to "Facebookで登録する", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">ログイン</button>
+                    <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+                            </button>
+                            <h3 class="modal-title">ログイン</h3>
+                          </div><!-- /modal-header -->
+                          <div class="modal-body fb-body">
+                            <%= link_to "Facebookでログイン", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
 
-</body>
+    <%# flash.each do |key, value| %>
+      <!--div class="alert alert-info alert-dismissible" role="alert">
+        <%#= value %>
+      </div-->
+    <%# end %>
+
+    <%= yield %>
+
+    <!-- Core JavaScript Files -->
+    <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'jquery.easing.min', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'jquery.sticky', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'jquery.scrollTo', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'stellar', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'wow.min', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'nivo-lightbox.min', 'data-turbolinks-track' => false %>
+    <!-- Custom Theme JavaScript -->
+    <%= javascript_include_tag 'custom', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'instagram-cats.pics-carousel', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'flickr-cats.pics-carousel', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'ranking', 'data-turbolinks-track' => false %>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- cat2.pics -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1613308380633846"
+         data-ad-slot="6089949610"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+  </body>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <%= image_tag 'cat2.pics-logo.png', :height => '100' %>
+          <p>&copy;Copyright 2016 powered by cat2.pics</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </html>
