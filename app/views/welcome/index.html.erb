@@ -153,7 +153,7 @@
         <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
           <div class="text-center">
             <p class='text-ranking'><B>ふぁぼランキング1位</B></p>
-            <%= image_tag @fav_cats[0].image_url, :class => 'img-responsive img-round' %>
+            <%= link_to image_tag(@fav_cats[0].image_url, :class => 'img-responsive img-round'), @fav_cats[0].link %>
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
         <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
           <div class="text-center">
             <p class='text-ranking'><B>ふぁぼランキング2位</B></p>
-            <%= image_tag @fav_cats[1].image_url, :class => 'img-responsive img-round' %>
+            <%= link_to image_tag(@fav_cats[1].image_url, :class => 'img-responsive img-round'), @fav_cats[1].link %>
           </div>
         </div>
       </div>
@@ -173,17 +173,17 @@
       <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4">
           <div class="align-center txt-shadow">
-            <%= image_tag @fav_cats[2].image_url, :class => 'img-responsive img-round' %>
+            <%= link_to image_tag(@fav_cats[2].image_url, :class => 'img-responsive img-round'), @fav_cats[2].link %>
           </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4">
           <div class="align-center txt-shadow">
-            <%= image_tag @fav_cats[3].image_url, :class => 'img-responsive img-round' %>
+            <%= link_to image_tag(@fav_cats[3].image_url, :class => 'img-responsive img-round'), @fav_cats[3].link %>
           </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4">
           <div class="align-center txt-shadow">
-            <%= image_tag @fav_cats[4].image_url, :class => 'img-responsive img-round' %>
+            <%= link_to image_tag(@fav_cats[4].image_url, :class => 'img-responsive img-round'), @fav_cats[4].link %>
           </div>
         </div>
       </div>
@@ -241,10 +241,8 @@
     </div>
   </section>
   <!-- /Section: services -->
-  
 
-<section  class="home-section text-left bg-flickr">
-
+  <section  class="home-section text-left bg-flickr">
   <!-- Section: gallery -->
     <div class="container" id="flickr">
       <div class="row">
