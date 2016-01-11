@@ -109,21 +109,21 @@
   </div>
   <!-- /Navigation -->
 
-    <!-- Section: intro -->
+  <!-- Section: intro -->
   <section id="intro" class="intro">
     <div class="slogan">
       <!--a href="index.html"><%#= image_tag 'cats.pics-logo.png' %></a-->
       <p class='text-white text-jumbo space-1'><B>おかえりなさい</B></p>
-      <p class='text-white text-medium'><B>写真でも雑貨でもなんでも、世界中のネコをあつめよう</B></p>
+      <p class='text-white text-medium'><B>写真でも雑貨でもなんでも、世界中のネコをあつめて共有しよう</B></p>
     </div>
     <div class="page-scroll">
-      <a href="#about"><i class="fa fa-angle-down fa-6x animated animated-hover"></i></a>
+      <a href="#ranking"><i class="fa fa-angle-down fa-6x animated animated-hover"></i></a>
     </div>
   </section>
   <!-- /Section: intro -->
 
   <!-- Section: about -->
-    <section id="about" class="home-section">
+  <!--section id="about" class="home-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
@@ -139,40 +139,56 @@
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
           <div class="section-heading text-center">
-            <%= image_tag 'cat2.pics-logo.png', :height => '180' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /Section: about -->
-
-  <!-- Section: separator -->
-  <!--section id="separator" class="home-section parallax text-center" data-stellar-background-ratio="0.5">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-8 col-sm-4 col-md-4">
-          <div class="align-center txt-shadow">
-            <%#= image_tag 'i.png', :height => '150', :class => 'img-rakuten' %>
-            <span class="color-white">10x failed in love</span>
-          </div>
-        </div>
-        <div class="col-xs-8 col-sm-4 col-md-4">
-          <div class="align-center txt-shadow">
-            <%#= image_tag 'r.jpg', :height => '150', :class => 'img-rakuten' %>
-            <span class="color-white">I love traveling</span>
-          </div>
-        </div>
-        <div class="col-xs-8 col-sm-4 col-md-4">
-          <div class="align-center txt-shadow">
-            <%#= image_tag 'f.png', :height => '150', :class => 'img-rakuten' %>
-            <span class="color-white">I'm photographer</span>
+            <%#= image_tag 'cat2.pics-logo.png', :height => '180' %>
           </div>
         </div>
       </div>
     </div>
   </section-->
-  <!-- /Section: separator -->
+  <!-- /Section: about -->
+
+  <section id="ranking" class="home-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+          <div class="text-center">
+            <p class='text-ranking'><B>ふぁぼランキング1位</B></p>
+            <%= link_to image_tag(@fav_cats[0].image_url, :class => 'img-responsive img-round'), @fav_cats[0].link %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+          <div class="text-center">
+            <p class='text-ranking'><B>ふぁぼランキング2位</B></p>
+            <%= link_to image_tag(@fav_cats[1].image_url, :class => 'img-responsive img-round'), @fav_cats[1].link %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class='text-ranking'><B>ふぁぼランキング3~5位</B></p>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <div class="align-center txt-shadow">
+            <%= link_to image_tag(@fav_cats[2].image_url, :class => 'img-responsive img-round'), @fav_cats[2].link %>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <div class="align-center txt-shadow">
+            <%= link_to image_tag(@fav_cats[3].image_url, :class => 'img-responsive img-round'), @fav_cats[3].link %>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+          <div class="align-center txt-shadow">
+            <%= link_to image_tag(@fav_cats[4].image_url, :class => 'img-responsive img-round'), @fav_cats[4].link %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Section: gallery -->
   <section id="instagram" class="home-section text-left bg-instagram">
@@ -225,10 +241,8 @@
     </div>
   </section>
   <!-- /Section: services -->
-  
 
-<section  class="home-section text-left bg-flickr">
-
+  <section  class="home-section text-left bg-flickr">
   <!-- Section: gallery -->
     <div class="container" id="flickr">
       <div class="row">
@@ -281,15 +295,17 @@
   <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'instagram-cats.pics-carousel', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'flickr-cats.pics-carousel', 'data-turbolinks-track' => false %>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- cat2.pics -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1613308380633846"
-     data-ad-slot="6089949610"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <%= javascript_include_tag 'ranking', 'data-turbolinks-track' => false %>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- cat2.pics -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1613308380633846"
+       data-ad-slot="6089949610"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </body>
 </html>

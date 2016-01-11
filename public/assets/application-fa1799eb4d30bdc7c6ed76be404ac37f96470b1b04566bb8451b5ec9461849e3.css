@@ -3278,13 +3278,13 @@ h4,
 h5,
 h6 {
   margin: 0 0 30px;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
   font-weight: 400;
   color: #444;
 }
 
 blockquote {
-  font-family: Georgia, arial, sans-serif;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
   color: #bbb;
   font-size: 20px;
 }
@@ -3521,6 +3521,7 @@ hr {
   display:block;
   position:relative;
   z-index:120;
+  background-color: #edefed;
 }
 
 .section-heading {
@@ -3614,6 +3615,10 @@ hr {
   font-size: 60px;
 }
 
+.text-ranking {
+  font-size: 40px;
+}
+
 .text-medium {
   font-size: 18px;
 }
@@ -3663,7 +3668,7 @@ hr {
   font-size: 60px;
   line-height: 60px;
   font-weight: 700;
-  font-family: Montserrat, sans-serif;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
   background-color: rgba(0, 0, 0, 0);
   text-decoration: none;
   text-transform: uppercase;
@@ -3960,6 +3965,10 @@ a.btn:hover {
 
   .text-jumbo {
     font-size: 35px;
+  }
+
+  .text-ranking {
+    font-size: 25px;
   }
 }
 
