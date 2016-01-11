@@ -711,11 +711,19 @@ a.btn:hover {
   }
 
   .text-jumbo {
-    font-size: 35px;
+    font-size: 33px;
   }
 
   .text-ranking {
     font-size: 25px;
+  }
+
+  .space-1 {
+    margin-bottom: 0px;
+  }
+
+  #intro.intro {
+    padding: 85px 0 50px 0;
   }
 }
 
