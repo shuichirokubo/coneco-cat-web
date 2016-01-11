@@ -2,10 +2,13 @@ class WelcomeController < ApplicationController
 
   def index
     authenticate_user
+    @fav_cats = InstagramCat.order(fav_count: :desc).page(1)
     if user_signed_in?
-      #@graph = Koala::Facebook::API.new(current_user.oauth_token)
       @profile = @current_user.image
-      @cats = InstagramCat.all.page(1)
+      @fav_flg = {}
+      @fav_cats.each do |fav_cat|
+        @fav_flg[fav_cat[:id]] = Favorite.exists?(:cat_id => fav_cat[:id], :user_id => @current_user.id)
+      end
     end
   end
 

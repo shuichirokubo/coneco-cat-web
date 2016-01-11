@@ -3,13 +3,20 @@
 <head>
   <title>Web</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
 
-<%= yield %>
+  <%# flash.each do |key, value| %>
+    <!--div class="alert alert-info alert-dismissible" role="alert">
+      <%#= value %>
+    </div-->
+  <%# end %>
+
+  <%= yield %>
 
 </body>
 </html>
