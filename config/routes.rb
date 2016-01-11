@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/v1/auth'
 
   # Account management
+  get 'logout', to: 'sessions#sign_out'
   delete 'logout', to: 'sessions#sign_out'
   get 'login', to: 'sessions#sign_in'
 
