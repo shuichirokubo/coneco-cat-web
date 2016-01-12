@@ -31,16 +31,16 @@ class Tasks::FetchInstagramCats
       results['data'].each do |item|
         InstagramCat.find_or_create_by(instagram_id: item['id']) do |instagram_cat|
           instagram_cat.instagram_id = item['id']
-          instagram_cat.text         = (item.has_key?('caption') and item['caption'].kind_of?(Array) and item['caption'].has_key?('text')) ? item['caption']['text'] : ''
-          instagram_cat.image_url    = (item.has_key?('images') and item['images'].kind_of?(Array) and item['images'].has_key?('standard_resolution')) ? item['images']['standard_resolution']['url'] : ''
-          instagram_cat.tags         = item.kind_of?(Array) ? item['tags'].join(',') : ''
+          instagram_cat.text         = (item.has_key?('caption') and item['caption'].kind_of?(Hash) and item['caption'].has_key?('text')) ? item['caption']['text'] : ''
+          instagram_cat.image_url    = (item.has_key?('images') and item['images'].kind_of?(Hash) and item['images'].has_key?('standard_resolution')) ? item['images']['standard_resolution']['url'] : ''
+          instagram_cat.tags         = item['tags'].kind_of?(Array) ? item['tags'].join(',') : ''
           instagram_cat.userid       = item.has_key?('user') ? item['user']['id'] : 0
           instagram_cat.username     = item.has_key?('user') ? item['user']['username'] : ''
           instagram_cat.userpic      = item.has_key?('user') ? item['user']['profile_picture'] : ''
           instagram_cat.link         = item['link']
           instagram_cat.likes        = item.has_key?('likes') ? item['likes']['count'] : 0
-          instagram_cat.posted_at    = (item.has_key?('caption') and item['caption'].kind_of?(Array) and item['caption'].has_key?('created_time')) ? Time.at(item['caption']['created_time'].to_i).to_s : Time.now.strftime("%Y-%m-%d %H:%M:%S")
-          if instagram_cat.image_url === '' ? instagram_cat.delete! : instagram_cat.save!
+          instagram_cat.posted_at    = (item.has_key?('caption') and item['caption'].kind_of?(Hash) and item['caption'].has_key?('created_time')) ? Time.at(item['caption']['created_time'].to_i).to_s : Time.now.strftime("%Y-%m-%d %H:%M:%S")
+          instagram_cat.image_url === '' ? instagram_cat.destroy! : instagram_cat.save!
         end
       end
     end
