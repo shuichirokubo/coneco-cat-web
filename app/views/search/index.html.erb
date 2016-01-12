@@ -1,0 +1,26 @@
+<section id="ranking" class="home-section">
+  <div class="container">
+    <p class='text-ranking'><B>にんきなねこさんたち</B></p>
+    <div class="row">
+      <% @fav_cats.each_with_index do |fav_cat, index| %>
+        <% if index.modulo(3) == 0 and index < 18 %>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="align-center txt-shadow">
+              <%= link_to image_tag(@fav_cats[index].image_url, :class => 'img-responsive img-round'), @fav_cats[index].link %>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="align-center txt-shadow">
+              <%= link_to image_tag(@fav_cats[index+1].image_url, :class => 'img-responsive img-round'), @fav_cats[index+1].link %>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="align-center txt-shadow">
+              <%= link_to image_tag(@fav_cats[index+2].image_url, :class => 'img-responsive img-round'), @fav_cats[index+2].link %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

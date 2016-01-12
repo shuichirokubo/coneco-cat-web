@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'search', to: 'search#index'
+  get 'search/index'
+
   get 'about', to: 'about#index'
   get 'about/index'
 
@@ -11,6 +14,8 @@ Rails.application.routes.draw do
 
   # For APIs
   Rails.application.routes.draw do
+  get 'search/index'
+
     mount API => '/'
   end
 

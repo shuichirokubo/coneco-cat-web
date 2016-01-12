@@ -28,6 +28,19 @@ module V1
         cats
       end
 
+      desc 'Return like_count ranking cats.'
+      params do
+        optional :page, type: Integer, desc: 'Page Num'
+      end
+      get 'like' do
+        cats = InstagramCat.order(likes: :desc).page(params[:page])
+        cats.each do |cat|
+          cat[:text].force_encoding('UTF-8')
+          cat[:tags].force_encoding('UTF-8')
+        end
+        cats
+      end
+
     end
   end
 end
