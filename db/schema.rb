@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111055454) do
+ActiveRecord::Schema.define(version: 20160112103529) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", limit: 255
@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 20160111055454) do
     t.string   "username",     limit: 255
     t.string   "userpic",      limit: 255
     t.integer  "fav_count",    limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "likes",        limit: 4,     default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "link",         limit: 255
+    t.datetime "posted_at"
   end
 
   add_index "instagram_cats", ["instagram_id"], name: "index_instagram_cats_on_instagram_id", unique: true, using: :btree

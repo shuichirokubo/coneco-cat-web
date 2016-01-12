@@ -10,7 +10,7 @@ CLIENTID = '9ad0d13ba1bc4af68fd60217ad853471'
 
 class Tasks::FetchInstagramCats
   def self.execute
-    tag_array = %w(ねこ 猫 kitty instacat ネコ neko cat lovecats cats ilovecat)
+    tag_array = %w(ねこ 猫 kitty instacat ネコ neko cat lovecats cats にゃんこ ilovecat)
     tag = tag_array.sample
     $log.info(%Q{#{tag}})
     instagram_uri = URI.parse(URI.escape(%Q(https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=#{CLIENTID})))
@@ -33,11 +33,13 @@ class Tasks::FetchInstagramCats
           instagram_cat.instagram_id = item['id']
           instagram_cat.text         = (item.has_key?('caption') and item['caption'].has_key?('text')) ? item['caption']['text'] : ''
           instagram_cat.image_url    = (item.has_key?('images') and item['images'].has_key?('standard_resolution')) ? item['images']['standard_resolution']['url'] : ''
-          instagram_cat.tags         = item['tags'].join(',')
-          instagram_cat.userid       = item['user']['id']
-          instagram_cat.username     = item['user']['username']
-          instagram_cat.userpic      = item['user']['profile_picture']
+          instagram_cat.tags         = item.kind_of?(Array) ? item['tags'].join(',') : ''
+          instagram_cat.userid       = item.has_key?('user') ? item['user']['id'] : 0
+          instagram_cat.username     = item.has_key?('user') ? item['user']['username'] : ''
+          instagram_cat.userpic      = item.has_key?('user') ? item['user']['profile_picture'] : ''
           instagram_cat.link         = item['link']
+          instagram_cat.likes        = item.has_key?('likes') ? item['likes']['count'] : 0
+          instagram_cat.posted_at    = Time.at(item['caption']['created_time'].to_i).to_s
           instagram_cat.save!
         end
       end

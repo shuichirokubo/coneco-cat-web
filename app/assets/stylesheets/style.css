@@ -104,7 +104,6 @@ img.img-responsive {
   font-weight: 700;
 }
 
-
 .navbar-brand:focus {
   outline: 0;
 }
@@ -725,6 +724,7 @@ a.btn:hover {
   #intro.intro {
     padding: 85px 0 50px 0;
   }
+
 }
 
 /* ==== Facebok ==== */
