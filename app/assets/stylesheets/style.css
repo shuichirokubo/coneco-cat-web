@@ -745,3 +745,12 @@ a.btn:hover {
   width: 280px;
   margin: 30px auto 45px;
 }
+
+.btn-favorite {
+  background: #ff5a5f;
+  color: #fff;
+}
+
+.favorite {
+  position: absolute;
+}

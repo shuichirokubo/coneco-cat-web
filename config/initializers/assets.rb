@@ -33,6 +33,7 @@ Rails.application.config.assets.precompile += %w( rakuten-cats.pics-carousel.js 
 Rails.application.config.assets.precompile += %w( instagram-cats.pics-carousel.js )
 Rails.application.config.assets.precompile += %w( flickr-cats.pics-carousel.js )
 Rails.application.config.assets.precompile += %w( ranking.js )
+Rails.application.config.assets.precompile += %w( favorite.js )
 
 ## Images
 Rails.application.config.assets.precompile += %w( cat2.pics-logo.png )
