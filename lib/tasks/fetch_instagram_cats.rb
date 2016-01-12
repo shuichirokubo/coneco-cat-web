@@ -39,7 +39,7 @@ class Tasks::FetchInstagramCats
           instagram_cat.userpic      = item.has_key?('user') ? item['user']['profile_picture'] : ''
           instagram_cat.link         = item['link']
           instagram_cat.likes        = item.has_key?('likes') ? item['likes']['count'] : 0
-          instagram_cat.posted_at    = Time.at(item['caption']['created_time'].to_i).to_s
+          instagram_cat.posted_at    = (item.has_key?('caption') and item['caption'].kind_of?(Array) and item['caption'].has_key?('created_time')) ? Time.at(item['caption']['created_time'].to_i).to_s : Time.at.to_s
           instagram_cat.save!
         end
       end

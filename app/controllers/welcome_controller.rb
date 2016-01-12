@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
 
   def index
     authenticate_user
-    @fav_cats = InstagramCat.order(fav_count: :desc).page(1)
+    @fav_cats = InstagramCat.without_soft_destroyed.order(fav_count: :desc).page(1)
     if user_signed_in?
       @profile = @current_user.image
       @fav_flg = {}
