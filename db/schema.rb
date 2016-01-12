@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112103529) do
+ActiveRecord::Schema.define(version: 20160112121645) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", limit: 255
@@ -33,22 +33,24 @@ ActiveRecord::Schema.define(version: 20160112103529) do
   end
 
   create_table "instagram_cats", force: :cascade do |t|
-    t.string   "instagram_id", limit: 255
-    t.binary   "text",         limit: 65535
-    t.string   "image_url",    limit: 255
-    t.binary   "tags",         limit: 65535
-    t.integer  "userid",       limit: 8
-    t.string   "username",     limit: 255
-    t.string   "userpic",      limit: 255
-    t.integer  "fav_count",    limit: 4
-    t.integer  "likes",        limit: 4,     default: 0
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "link",         limit: 255
+    t.string   "instagram_id",      limit: 255
+    t.binary   "text",              limit: 65535
+    t.string   "image_url",         limit: 255
+    t.binary   "tags",              limit: 65535
+    t.integer  "userid",            limit: 8
+    t.string   "username",          limit: 255
+    t.string   "userpic",           limit: 255
+    t.integer  "fav_count",         limit: 4
+    t.integer  "likes",             limit: 4,     default: 0
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "link",              limit: 255
     t.datetime "posted_at"
+    t.datetime "soft_destroyed_at"
   end
 
   add_index "instagram_cats", ["instagram_id"], name: "index_instagram_cats_on_instagram_id", unique: true, using: :btree
+  add_index "instagram_cats", ["soft_destroyed_at"], name: "index_instagram_cats_on_soft_destroyed_at", using: :btree
 
   create_table "rakuten_cats", force: :cascade do |t|
     t.string   "code",           limit: 255

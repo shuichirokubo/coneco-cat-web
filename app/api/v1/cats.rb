@@ -7,7 +7,7 @@ module V1
         optional :page, type: Integer, desc: 'Page Num'
       end
       get do
-        cats = InstagramCat.all.page(params[:page])
+        cats = InstagramCat.all.without_soft_destroyed.page(params[:page])
         cats.each do |cat|
           cat[:text].force_encoding('UTF-8')
           cat[:tags].force_encoding('UTF-8')
@@ -20,7 +20,7 @@ module V1
         optional :page, type: Integer, desc: 'Page Num'
       end
       get 'ranking' do
-        cats = InstagramCat.order(fav_count: :desc).page(params[:page])
+        cats = InstagramCat.without_soft_destroyed.order(fav_count: :desc).page(params[:page])
         cats.each do |cat|
           cat[:text].force_encoding('UTF-8')
           cat[:tags].force_encoding('UTF-8')
@@ -33,7 +33,7 @@ module V1
         optional :page, type: Integer, desc: 'Page Num'
       end
       get 'like' do
-        cats = InstagramCat.order(likes: :desc).page(params[:page])
+        cats = InstagramCat.without_soft_destroyed.order(likes: :desc).page(params[:page])
         cats.each do |cat|
           cat[:text].force_encoding('UTF-8')
           cat[:tags].force_encoding('UTF-8')

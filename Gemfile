@@ -75,6 +75,8 @@ gem 'kaminari'
 # config
 gem 'config'
 
+gem 'kakurenbo-puti'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
