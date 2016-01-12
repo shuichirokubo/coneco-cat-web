@@ -10,7 +10,7 @@ CLIENTID = '9ad0d13ba1bc4af68fd60217ad853471'
 
 class Tasks::FetchInstagramCats
   def self.execute
-    tag_array = %w(ねこ 猫 kitty instacat ネコ neko cat lovecats cats ilovecat)
+    tag_array = %w(ねこ 猫 kitty instacat ネコ neko cat lovecats cats にゃんこ ilovecat)
     tag = tag_array.sample
     $log.info(%Q{#{tag}})
     instagram_uri = URI.parse(URI.escape(%Q(https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=#{CLIENTID})))
