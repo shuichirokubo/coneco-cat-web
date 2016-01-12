@@ -40,7 +40,7 @@ class Tasks::FetchInstagramCats
           instagram_cat.link         = item['link']
           instagram_cat.likes        = item.has_key?('likes') ? item['likes']['count'] : 0
           instagram_cat.posted_at    = (item.has_key?('caption') and item['caption'].kind_of?(Array) and item['caption'].has_key?('created_time')) ? Time.at(item['caption']['created_time'].to_i).to_s : Time.now.strftime("%Y-%m-%d %H:%M:%S")
-          instagram_cat.save!
+          if instagram_cat.image_url === '' ? instagram_cat.delete! : instagram_cat.save!
         end
       end
     end
