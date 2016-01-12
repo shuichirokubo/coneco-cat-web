@@ -105,7 +105,6 @@ img.img-responsive {
   font-weight: 700;
 }
 
-
 .navbar-brand:focus {
   outline: 0;
 }
@@ -726,6 +725,7 @@ a.btn:hover {
   #intro.intro {
     padding: 85px 0 50px 0;
   }
+
 }
 
 /* ==== Facebok ==== */
@@ -745,4 +745,13 @@ a.btn:hover {
 .fb-body {
   width: 280px;
   margin: 30px auto 45px;
+}
+
+.btn-favorite {
+  background: #ff5a5f;
+  color: #fff;
+}
+
+.favorite {
+  position: absolute;
 }

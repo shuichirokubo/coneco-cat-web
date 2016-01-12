@@ -13687,6 +13687,27 @@ var shuffle_array = function(array) {
   }
   return array;
 };
+$(function() {
+  $("button").click(function() {
+    var that = this;
+    var cat_id = $(this).val();
+    var favorite_url = "/api/v1/favorites";
+    $.ajax({
+      url: favorite_url,
+      type: 'POST',
+      dataType: 'jsonp',
+      data: {cat_id: cat_id},
+      timeout: 10000,
+      success: function() {
+        $(that).prop('disabled', true);
+        $(that).html("ふぁぼった");
+        $(that).toggleClass("btn-favorite");
+      },
+      error: function() {
+      }
+    });
+  });
+});
 var get_flickr_pics = function() {
   // for flickr
   var textArray = ['ねこ','猫','kitty','ネコ','neko','cat'];
@@ -14102,6 +14123,9 @@ var set_ranking_pics = function() {
 //      })
 //    })
 };
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+;
 /*!
  * Stellar.js v0.6.2
  * http://markdalgleish.com/projects/stellar.js
