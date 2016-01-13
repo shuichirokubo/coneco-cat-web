@@ -5,7 +5,22 @@
 <url>
   <loc>http://coneco.cat2.pics/</loc>
   <priority>1.0</priority>
+  <changefreq>always</changefreq>
 </url>
-
+<url>
+  <loc>http://coneco.cat2.pics/search</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://coneco.cat2.pics/favorite</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://coneco.cat2.pics/about</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
 </urlset>
 
