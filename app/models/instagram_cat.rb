@@ -1,4 +1,4 @@
 class InstagramCat < ActiveRecord::Base
   soft_deletable
-  paginates_per 20
+  paginates_per 30
 end

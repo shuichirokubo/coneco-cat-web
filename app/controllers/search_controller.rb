@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def index
     authenticate_user
-    @fav_cats = InstagramCat.without_soft_destroyed.order(likes: :desc).page(1)
+    @fav_cats = InstagramCat.without_soft_destroyed.order(likes: :desc).page(params[:page]).per(30)
     if user_signed_in?
       @profile = @current_user.image
       @fav_flg = {}
