@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'favorite', to: 'favorite#index'
+  get 'favorite/index'
+
   get 'search', to: 'search#index'
   get 'search/index'
 
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
 
   # For APIs
   Rails.application.routes.draw do
+  get 'favorite/index'
+
   get 'search/index'
 
     mount API => '/'
