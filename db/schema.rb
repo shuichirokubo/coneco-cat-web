@@ -13,18 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160112121645) do
 
-  create_table "api_keys", force: :cascade do |t|
-    t.string   "access_token", limit: 255
-    t.datetime "expires_at"
-    t.integer  "user_id",      limit: 4
-    t.boolean  "active"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true, using: :btree
-  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
-
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "cat_id",     limit: 4
@@ -40,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160112121645) do
     t.integer  "userid",            limit: 8
     t.string   "username",          limit: 255
     t.string   "userpic",           limit: 255
-    t.integer  "fav_count",         limit: 4
+    t.integer  "fav_count",         limit: 4,     default: 0
     t.integer  "likes",             limit: 4,     default: 0
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
