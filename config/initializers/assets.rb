@@ -34,6 +34,8 @@ Rails.application.config.assets.precompile += %w( instagram-cats.pics-carousel.j
 Rails.application.config.assets.precompile += %w( flickr-cats.pics-carousel.js )
 Rails.application.config.assets.precompile += %w( ranking.js )
 Rails.application.config.assets.precompile += %w( favorite.js )
+Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( jquery.infinitescroll.js )
 
 ## Images
 Rails.application.config.assets.precompile += %w( cat2.pics-logo.png )

@@ -1,21 +1,10 @@
 <section id="search" class="home-section">
   <div class="container">
     <p class='text-ranking'><B>人気な子達</B></p>
-    <div class="row">
-      <% @fav_cats.each do |fav_cat| %>
-        <div class="col-xs-12 col-sm-12 col-md-4">
-          <div class="align-center txt-shadow">
-            <% if user_signed_in? %>
-              <% if @fav_flg[fav_cat.id] %>
-                <button type='submit' class='favorite btn btn-lg' value='<%= fav_cat.id %>' disabled>ふぁぼった</button>
-              <% else %>
-                <button type='submit' class='favorite btn btn-lg btn-favorite' value='<%= fav_cat.id %>'>ふぁぼる</button>
-              <% end %>
-            <% end %>
-            <%= link_to image_tag(fav_cat.image_url, :class => 'img-responsive img-round'), fav_cat.link %>
-          </div>
-        </div>
-      <% end %>
+    <div class="fav_cat row">
+      <%= render :template => "search/_fav_cat" %>
     </div>
   </div>
 </section>
+
+<%= paginate @fav_cats, remote: true %>

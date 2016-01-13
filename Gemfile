@@ -71,6 +71,7 @@ gem 'google-analytics-rails'
 
 # Paging
 gem 'kaminari'
+gem 'jquery-turbolinks'
 
 # config
 gem 'config'

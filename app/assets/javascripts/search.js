@@ -1,2 +1,14 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var set_search_pics = function() {
+  $(".fav_cat").infinitescroll({
+    loading: {
+      img: '/images/loading.gif',
+      msgText: '',
+      finishedMsg: "end",
+    },
+    dataType: 'js',
+    maxPage: 20,
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination a[rel=next]",
+    itemSelector: "div.fav",
+  })
+}
