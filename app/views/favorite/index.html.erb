@@ -1,0 +1,14 @@
+<section id="favorite" class="home-section">
+  <div class="container">
+    <p class='text-ranking'><B>おきにいりのねこさんたち</B></p>
+    <div class="row">
+      <% @fav_cats.each_with_index do |fav_cat, index| %>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="align-center txt-shadow">
+            <%= link_to image_tag(fav_cat[:image_url], :class => 'img-responsive img-round'), fav_cat[:link] %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
