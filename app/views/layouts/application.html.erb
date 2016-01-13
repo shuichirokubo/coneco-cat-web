@@ -40,15 +40,15 @@
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav">
                   <% if controller.controller_name == 'welcome' %>
-                    <li class='active'><a href='#intro'>HOME</a></li>
-                    <li><a href='#ranking'>RANKING</a></li>
+                    <li class='active'><a href='#intro'>トップ</a></li>
+                    <li><a href='#ranking'>ランキング</a></li>
                   <% else %>
-                    <li class='active'><a href='welcome'>HOME</a></li>
-                    <li><a href='welcome'>RANKING</a></li>
+                    <li class='active'><a href='welcome'>トップ</a></li>
+                    <li><a href='welcome'>ランキング</a></li>
                   <% end %>
-                  <li><a href='search'>SEARCH</a></li>
-                  <li><a href='favorite'>FAVORITE</a></li>
-                  <li><a href='about'>ABOUT</a></li>
+                  <li><a href='search'>サーチ</a></li>
+                  <li><a href='favorite'>お気に入り</a></li>
+                  <li><a href='about'>cat2.picsとは</a></li>
                   <% if user_signed_in? %>
                   </li>
                     <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
