@@ -76,6 +76,9 @@ gem 'jquery-turbolinks'
 # config
 gem 'config'
 
+# share button
+gem 'social-share-button'
+
 gem 'kakurenbo-puti'
 
 group :development, :test do

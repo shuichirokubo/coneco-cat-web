@@ -274,6 +274,9 @@ GEM
     sitemap_generator (5.1.0)
       builder
     slop (3.6.0)
+    social-share-button (0.1.10)
+      coffee-rails
+      sass-rails
     spring (1.6.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -352,6 +355,7 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   sitemap_generator
+  social-share-button
   spring
   therubyracer
   turbolinks

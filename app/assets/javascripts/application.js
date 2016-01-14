@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require jquery.infinitescroll
 //= require_tree .
+//= require social-share-button
