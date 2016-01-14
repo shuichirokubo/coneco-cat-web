@@ -44,7 +44,7 @@ gem 'puma'
 gem 'newrelic_rpm'
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 # Auth
 gem 'devise', '3.5.3'
