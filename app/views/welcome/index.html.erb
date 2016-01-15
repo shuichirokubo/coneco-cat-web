@@ -45,20 +45,22 @@
   </div>
   <div class="container">
     <% if @fav_cats.count > 4 %>
-      <p class='text-ranking'><B>ふぁぼランキング3~5位</B></p>
       <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div class="align-center txt-shadow">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="align-center txt-shadow text-center">
+            <p class='text-under-ranking'><B>ふぁぼランキング3位</B></p>
             <%= link_to image_tag(@fav_cats[2].image_url, :class => 'img-responsive img-round'), @fav_cats[2].link %>
           </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div class="align-center txt-shadow">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="align-center txt-shadow text-center">
+            <p class='text-under-ranking'><B>ふぁぼランキング4位</B></p>
             <%= link_to image_tag(@fav_cats[3].image_url, :class => 'img-responsive img-round'), @fav_cats[3].link %>
           </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div class="align-center txt-shadow">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="align-center txt-shadow text-center">
+            <p class='text-under-ranking'><B>ふぁぼランキング5位</B></p>
             <%= link_to image_tag(@fav_cats[4].image_url, :class => 'img-responsive img-round'), @fav_cats[4].link %>
           </div>
         </div>
