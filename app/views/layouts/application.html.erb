@@ -25,8 +25,8 @@
   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
     <!-- Navigation -->
-    <div id="navigation">
-      <nav class="navbar navbar-custom" role="navigation">
+
+      <nav class="navbar navbar-custom" role="navigation" id="navigation">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
@@ -40,60 +40,58 @@
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav">
                   <% if controller.controller_name == 'welcome' %>
-                    <li class='active'><a href='#intro'>トップ</a></li>
-                    <li><a href='#ranking'>ランキング</a></li>
+                    <li class='active'><a href='#intro'>Top</a></li>
+                    <li><a href='#ranking'>Ranking</a></li>
                   <% else %>
-                    <li class='active'><a href='welcome'>トップ</a></li>
-                    <li><a href='welcome'>ランキング</a></li>
+                    <li class='active'><a href='welcome'>Top</a></li>
+                    <li><a href='welcome'>Ranking</a></li>
                   <% end %>
-                  <li><a href='search'>サーチ</a></li>
-                  <li><a href='favorite'>お気に入り</a></li>
-                  <li><a href='about'>cat2.picsとは</a></li>
+                  <li><a href='search'>Search</a></li>
+                  <li><a href='favorite'>Favorite</a></li>
+                  <li><a href='about'>About cat2.pics</a></li>
                   <% if user_signed_in? %>
                   </li>
                     <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
                   </li>
                   <li>
-                    <p><%= link_to 'ログアウト', 'logout', :method => :delete %></p>
+                    <p><%= link_to 'Logout', 'logout', :method => :delete %></p>
                   </li>
                   <% else %>
                   <li>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal">アカウント作成</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal">Sign Up</button>
                     <div class="modal" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">
-                              <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+                              <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span>
                             </button>
-                            <h3 class="modal-title">会員登録</h3>
                           </div><!-- /modal-header -->
                           <div class="modal-body fb-body">
-                            <%= link_to "Facebookで登録する", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+                            <%= link_to "Sign Up By Facebook", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
                     </div>
                   </li>
                   <li>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">ログイン</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">Login</button>
                     <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">
-                              <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+                              <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span>
                             </button>
-                            <h3 class="modal-title">ログイン</h3>
                           </div><!-- /modal-header -->
                           <div class="modal-body fb-body">
-                            <%= link_to "Facebookでログイン", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+                            <%= link_to "Facebook Login", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
@@ -106,7 +104,7 @@
           </div>
         </div>
       </nav>
-    </div>
+
 
     <%# flash.each do |key, value| %>
       <!--div class="alert alert-info alert-dismissible" role="alert">
