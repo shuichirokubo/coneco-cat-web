@@ -13611,9 +13611,9 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap requires jQuery");+func
     $("#navigation").sticky({ topSpacing: 0 });
     set_search_pics();
     set_ranking_pics();
-    set_instagram_pics();
-    set_rakuten_pics();
-    set_flickr_pics();
+    //set_instagram_pics();
+    //set_rakuten_pics();
+    //set_flickr_pics();
   });
 
   jQuery(window).load(function() {
@@ -13815,6 +13815,8 @@ var set_instagram_pics = function() {
       });
     });
 };
+var set_introduction = function() {}
+;
 /*! jQuery v1.10.2 | (c) 2005, 2013 jQuery Foundation, Inc. | jquery.org/license
 //@ sourceMappingURL=jquery.min.map
 */

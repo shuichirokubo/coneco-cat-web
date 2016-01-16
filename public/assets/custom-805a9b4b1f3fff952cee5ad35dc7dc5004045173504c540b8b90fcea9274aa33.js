@@ -6,9 +6,9 @@
     $("#navigation").sticky({ topSpacing: 0 });
     set_search_pics();
     set_ranking_pics();
-    set_instagram_pics();
-    set_rakuten_pics();
-    set_flickr_pics();
+    //set_instagram_pics();
+    //set_rakuten_pics();
+    //set_flickr_pics();
   });
 
   jQuery(window).load(function() {

@@ -87,8 +87,13 @@ img.img-responsive {
 }
 
 .header-img {
-  margin-top: 2.5px;
+  margin-top: 5px;
   margin-left: -300px;
+}
+
+.introduction {
+  width: 650px;
+  height: 350px;
 }
 
 /* ------- Navigation ------------ */
@@ -759,6 +764,10 @@ a.btn:hover {
   .header-img {
     margin-top: 5px;
     margin-left: 45px;
+  }
+
+  .introduction {
+    width: 280px;
   }
 }
 
