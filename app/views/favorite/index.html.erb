@@ -1,14 +1,22 @@
 <section id="favorite" class="home-section">
   <div class="container">
     <p class='text-ranking'><B>お気に入りの子達</B></p>
-    <div class="row">
-      <% @fav_cats.each_with_index do |fav_cat, index| %>
-        <div class="col-xs-12 col-sm-12 col-md-4">
-          <div class="align-center txt-shadow">
-            <%= link_to image_tag(fav_cat[:image_url], :class => 'img-responsive img-round'), fav_cat[:link] %>
+    <% if user_signed_in? %>
+      <div class="row">
+        <% @fav_cats.each_with_index do |fav_cat, index| %>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="align-center txt-shadow">
+              <%= link_to image_tag(fav_cat[:image_url], :class => 'img-responsive img-round'), fav_cat[:link] %>
+            </div>
           </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          会員登録することで発見した猫さん達をふぁぼる（お気に入り登録）することができます。
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </section>
