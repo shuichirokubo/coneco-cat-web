@@ -357,6 +357,14 @@ hr {
   color: #fff;
 }
 
+.text-green {
+  color: #007a87;
+}
+
+.text-light-black {
+  color: #565a5c; 
+}
+
 .text-red {
   color: #F88F79;
 }
