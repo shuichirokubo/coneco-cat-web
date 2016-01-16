@@ -3335,6 +3335,9 @@ img.img-responsive {
   font-size: 8em !important;
 }
 
+.douga {
+  width: 1000px;
+}
 
 /* ------- Navigation ------------ */
 #navigation {
@@ -3608,6 +3611,10 @@ hr {
 
 .text-red {
   color: #F88F79;
+}
+
+.text-pink {
+  color: #ff5a5f;
 }
 
 .text-jumbo {
@@ -3943,6 +3950,9 @@ a.btn:hover {
   .navbar-header .fa {
   color: #666;
   }
+  .douga {
+    width: 400px;
+  }
 }
 
 .col-xs-6 {
@@ -3982,6 +3992,9 @@ a.btn:hover {
     padding: 85px 0 50px 0;
   }
 
+  .douga {
+    width: 280px;
+  }
 }
 
 /* ==== Facebok ==== */
