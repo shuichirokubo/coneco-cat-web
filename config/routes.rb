@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'ranking', to: 'ranking#index'
+  get 'ranking/index'
+
   get 'favorite', to: 'favorite#index'
   get 'favorite/index'
 
@@ -17,6 +20,8 @@ Rails.application.routes.draw do
 
   # For APIs
   Rails.application.routes.draw do
+  get 'ranking/index'
+
   get 'favorite/index'
 
   get 'search/index'

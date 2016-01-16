@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>cat2.pics - 世界中のネコをあつめて共有しよう -</title>
+    <meta name="description" content="cat2.pics - 世界中の猫を集めて共有しよう -">
+    <meta name="author" content="yuya.kakui">
+    <title>cat2.pics - 世界中の猫をあつめてシェアしよう -</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!-- CSS -->
@@ -41,14 +41,13 @@
                 <ul class="nav navbar-nav">
                   <% if controller.controller_name == 'welcome' %>
                     <li class='active'><a href='#intro'>Top</a></li>
-                    <li><a href='#ranking'>Ranking</a></li>
                   <% else %>
                     <li class='active'><a href='welcome'>Top</a></li>
-                    <li><a href='welcome'>Ranking</a></li>
                   <% end %>
+                  <li><a href='ranking'>Ranking</a></li>
                   <li><a href='search'>Search</a></li>
                   <li><a href='favorite'>Favorite</a></li>
-                  <li><a href='about'>About cat2.pics</a></li>
+                  <li><a href='about'>About</a></li>
                   <% if user_signed_in? %>
                   </li>
                     <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
