@@ -5,6 +5,7 @@
       <% @fav_cats.each_with_index do |fav_cat, index| %>
         <div class="col-xs-12 col-sm-12 col-md-4">
           <div class="align-center txt-shadow">
+            <p class='text-under-ranking'><B>ふぁぼランキング<%= index+1 %>位</B></p>
             <%= link_to image_tag(fav_cat[:image_url], :class => 'img-responsive img-round'), fav_cat[:link] %>
           </div>
         </div>
