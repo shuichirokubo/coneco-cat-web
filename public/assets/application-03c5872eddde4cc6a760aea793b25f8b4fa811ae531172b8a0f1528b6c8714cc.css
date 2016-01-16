@@ -3339,6 +3339,11 @@ img.img-responsive {
   width: 1000px;
 }
 
+.header-img {
+  margin-top: 2.5px;
+  margin-left: -300px;
+}
+
 /* ------- Navigation ------------ */
 #navigation {
   background: #fff;
@@ -4003,6 +4008,11 @@ a.btn:hover {
   .douga {
     width: 280px;
   }
+
+  .header-img {
+    margin-top: 2.5px;
+    margin-left: -200px;
+  }
 }
 
 /* ==== Facebok ==== */
@@ -4044,6 +4054,7 @@ a.btn:hover {
 .favorite {
   position: absolute;
 }
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
