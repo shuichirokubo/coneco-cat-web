@@ -8,6 +8,11 @@
   <changefreq>always</changefreq>
 </url>
 <url>
+  <loc>http://coneco.cat2.pics/ranking</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
   <loc>http://coneco.cat2.pics/search</loc>
   <priority>0.8</priority>
   <changefreq>always</changefreq>
