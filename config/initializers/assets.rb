@@ -36,6 +36,7 @@ Rails.application.config.assets.precompile += %w( ranking.js )
 Rails.application.config.assets.precompile += %w( favorite.js )
 Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( jquery.infinitescroll.js )
+Rails.application.config.assets.precompile += %w( remodal.js )
 
 ## Images
 Rails.application.config.assets.precompile += %w( cat2.pics-logo.png )

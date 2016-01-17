@@ -7,107 +7,109 @@
     <meta name="author" content="yuya.kakui">
     <script src="//j.wovn.io/0" data-wovnio="key=fw1Rz"></script>
     <title>cat2.pics - 世界中の猫をあつめてシェアしよう -</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%#= javascript_include_tag 'application',  %>
     <!-- CSS -->
-    <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'nivo-lightbox', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'nivo-lightbox-theme/default/default', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'owl.carousel', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'default', media: 'all', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag 'font-awesome.min', media: 'all', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'bootstrap.min', media: 'all' %>
+    <%= stylesheet_link_tag 'nivo-lightbox', media: 'all' %>
+    <%= stylesheet_link_tag 'nivo-lightbox-theme/default/default', media: 'all' %>
+    <%= stylesheet_link_tag 'owl.carousel', media: 'all' %>
+    <%= stylesheet_link_tag 'owl.theme', media: 'all' %>
+    <%= stylesheet_link_tag 'animate', media: 'all' %>
+    <%= stylesheet_link_tag 'style', media: 'all' %>
+    <%= stylesheet_link_tag 'default', media: 'all' %>
+    <%= stylesheet_link_tag 'font-awesome.min', media: 'all' %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= analytics_init if Rails.env.production? %>
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
-  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-569a607f2fca6de7" async="async"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-569a607f2fca6de7" async="async"></script>
 
     <!-- Navigation -->
 
-      <nav class="navbar navbar-custom" role="navigation" id="navigation">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <a href='/'><%= image_tag 'cat2.pics-logo.png', :height => '40px', :class => 'header-img' %></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                  <i class="fa fa-bars"></i>
-                </button>
-              </div>
 
-              <div class="collapse navbar-collapse" id="menu">
-                <ul class="nav navbar-nav">
-                  <% if controller.controller_name == 'welcome' %>
-                    <li class='active'><a href='#intro'>Top</a></li>
-                  <% else %>
-                    <li class='active'><a href='welcome'>Top</a></li>
-                  <% end %>
-                  <li><a href='ranking'>Ranking</a></li>
-                  <li><a href='search'>Search</a></li>
-                  <li><a href='favorite'>Favorite</a></li>
-                  <li><a href='about'>About</a></li>
-                  <% if user_signed_in? %>
-                  </li>
-                    <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
-                  </li>
-                  <li>
-                    <p><%= link_to 'Logout', 'logout', :method => :delete %></p>
-                  </li>
-                  <% else %>
-                  <li>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal">Sign Up</button>
-                    <div class="modal" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                              <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span>
-                            </button>
-                          </div><!-- /modal-header -->
-                          <div class="modal-body fb-body">
-                            <%= link_to "Sign Up By Facebook", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
+    <nav class="navbar navbar-custom" role="navigation" id="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <a href='/'><%= image_tag 'cat2.pics-logo.png', :height => '40px', :class => 'header-img' %></a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <i class="fa fa-bars"></i>
+              </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="nav navbar-nav">
+                <% if controller.controller_name == 'welcome' %>
+                  <li class='active'><a href='#intro'>Top</a></li>
+                <% else %>
+                  <li class='active'><a href='welcome'>Top</a></li>
+                <% end %>
+                <li><a href='ranking'>Ranking</a></li>
+                <li><a href='search'>Search</a></li>
+                <li><a href='favorite'>Favorite</a></li>
+                <li><a href='about'>About</a></li>
+                <% if user_signed_in? %>
+                </li>
+                  <%= image_tag current_user.image, :height => '35px', :class => 'img-flickr' %>
+                </li>
+                <li>
+                  <p><%= link_to 'Logout', 'logout', :method => :delete %></p>
+                </li>
+                <% else %>
+                <li>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal">Sign Up</button>
+                  <div class="modal" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span>
+                          </button>
+                        </div><!-- /modal-header -->
+                        <div class="modal-body fb-body">
+                          <%= link_to "Sign Up By Facebook", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %></br>
+                          登録ボタンをクリックすると、cat2.picsのサービス利用規約に同意したことになります。
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>
-                  </li>
-                  <li>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">Login</button>
-                    <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                              <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span>
-                            </button>
-                          </div><!-- /modal-header -->
-                          <div class="modal-body fb-body">
-                            <%= link_to "Facebook Login", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
+                  </div>
+                </li>
+                <li>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">Login</button>
+                  <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&#215;</span><span class="sr-only">Close</span>
+                          </button>
+                        </div><!-- /modal-header -->
+                        <div class="modal-body fb-body">
+                          <%= link_to "Facebook Login", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>
-                  </li>
-                  <% end %>
-                </ul>
-              </div>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
 
     <%# flash.each do |key, value| %>
@@ -119,24 +121,25 @@
     <%= yield %>
 
     <!-- Core JavaScript Files -->
-    <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'jquery.easing.min', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'jquery.sticky', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'jquery.scrollTo', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'jquery.infinitescroll', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'stellar', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'wow.min', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'nivo-lightbox.min', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'jquery.min' %>
+    <%= javascript_include_tag 'bootstrap.min' %>
+    <%= javascript_include_tag 'jquery.easing.min' %>
+    <%= javascript_include_tag 'jquery.sticky' %>
+    <%= javascript_include_tag 'jquery.scrollTo' %>
+    <%= javascript_include_tag 'jquery.infinitescroll' %>
+    <%= javascript_include_tag 'remodal' %>
+    <%= javascript_include_tag 'stellar' %>
+    <%= javascript_include_tag 'wow.min' %>
+    <%= javascript_include_tag 'owl.carousel.min' %>
+    <%= javascript_include_tag 'nivo-lightbox.min' %>
     <!-- Custom Theme JavaScript -->
-    <%= javascript_include_tag 'custom', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'rakuten-cats.pics-carousel', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'instagram-cats.pics-carousel', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'flickr-cats.pics-carousel', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'ranking', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'favorite', 'data-turbolinks-track' => false %>
-    <%= javascript_include_tag 'search', 'data-turbolinks-track' => false %>
+    <%= javascript_include_tag 'custom' %>
+    <%= javascript_include_tag 'rakuten-cats.pics-carousel' %>
+    <%= javascript_include_tag 'instagram-cats.pics-carousel' %>
+    <%= javascript_include_tag 'flickr-cats.pics-carousel' %>
+    <%= javascript_include_tag 'ranking' %>
+    <%= javascript_include_tag 'favorite' %>
+    <%= javascript_include_tag 'search' %>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- cat2.pics -->
