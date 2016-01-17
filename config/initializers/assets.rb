@@ -41,3 +41,6 @@ Rails.application.config.assets.precompile += %w( remodal.js )
 ## Images
 Rails.application.config.assets.precompile += %w( cat2.pics-logo.png )
 Rails.application.config.assets.precompile += %w( favicon.ico )
+Rails.application.config.assets.precompile += %w( search.png )
+Rails.application.config.assets.precompile += %w( favorite.png )
+Rails.application.config.assets.precompile += %w( ranking.png )

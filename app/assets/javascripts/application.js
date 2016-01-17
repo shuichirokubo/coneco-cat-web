@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require jquery.infinitescroll
 //= require_tree .
-//= require social-share-button
