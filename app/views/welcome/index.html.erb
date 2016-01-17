@@ -29,7 +29,22 @@
 <section id="introduction" class="home-section">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-4">
+      <% if !user_signed_in? %>
+       <div class="col-xs-12 col-sm-12 col-md-3">
+          <div class="text-center">
+            <div class="fb-body-mini">
+            <%= link_to "Sign Up By Facebook", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+            </div>
+            <p>まずはアカウント登録をしよう</p>
+            <div class="fb-body-mini">
+            <%= link_to "Facebook Login", %Q{api/v1/auth/facebook?auth_origin_url=#{Settings.base_url}/login}, :class => 'btn btn-info fb' %>
+            </div>
+            <p>アカウントお持ちの方はログインをしてね</p>
+          </div>
+        </div>
+      <% end %>
+      
+      <div class="col-xs-12 col-sm-12 col-md-3">
         <div class="text-center">
           <div class="thumnail">
             <%= image_tag 'search.png', :class => 'img-rakuten' %>
@@ -42,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="col-xs-12 col-sm-12 col-md-3">
         <div class="text-center">
           <div class="thumnail">
             <%= image_tag 'favorite.png', :class => 'img-rakuten' %>
@@ -55,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="col-xs-12 col-sm-12 col-md-3">
         <div class="text-center">
           <div class="thumnail">
             <%= image_tag 'ranking.png', :class => 'img-rakuten' %>

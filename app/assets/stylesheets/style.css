@@ -834,3 +834,8 @@ a.btn:hover {
   position: absolute;
 }
 
+.fb-body-mini {
+  width:300px;
+  margin-left: auto;
+  margin-right: auto;
+}
